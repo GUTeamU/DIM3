@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href = "css/bootstrap.min.css" rel = "stylesheet">
         <link href = "css/styles.css" rel = "stylesheet">
+        <script type="text/javascript" src="projectBoard.js"></script>
     </head>
     <body>
 
@@ -37,13 +38,14 @@
 
         <div class = "container">
             <center><h1>Project Whiteboard</h1>
-            <div class = "jumbotron">
-                <button type="button" class="btn btn-danger btn-lg">Must Have</button>
-                <button type="button" class="btn btn-warning btn-lg">Should Have</button>
-                <button type="button" class="btn btn-success btn-lg">Could Have</button>
-                <button type="button" class="btn btn-primary btn-lg">Would Like</button>
-            </div>
-        
+            <div id = "whiteboard" class = "whiteboard">
+                <div class="btn-group" data-toggle="buttons">
+                    <button type="button" class="btn btn-danger btn-lg" id="must-have" onclick="mustHave()">Must Have</button>
+                    <button type="button" class="btn btn-warning btn-lg" id="should-have" onclick="shouldHave()">Should Have</button>
+                    <button type="button" class="btn btn-success btn-lg" id="could-have" onclick="couldHave()">Could Have</button>
+                    <button type="button" class="btn btn-primary btn-lg" id="would-like" onclick="wouldLike()">Would Like</button>
+                </div>
+            <div>
         </div>
 
 
