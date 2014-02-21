@@ -10,5 +10,11 @@ requests-oauthlib==0.4.0
 sqlparse==0.1.10
 wsgiref==0.1.2
 django-social-auth==0.7.28
+python-openid==2.2.5
+oauth2==1.5.221
+django-openid-auth==0.3
+
+
+
 
 
