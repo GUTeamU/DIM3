@@ -1,19 +1,19 @@
 function mustHave() {
 	var elem = document.getElementById("whiteboard");
-	elem.style.background = "red";
+	elem.style.background = "#DB8484";
 }
 
 function shouldHave() {
 	var elem = document.getElementById("whiteboard");
-	elem.style.background = "orange";
+	elem.style.background = "#EBC17A";
 }
 
 function couldHave() {
 	var elem = document.getElementById("whiteboard");
-	elem.style.background = "green";
+	elem.style.background = "#C0E099";
 }
 
 function wouldLike() {
 	var elem = document.getElementById("whiteboard");
-	elem.style.background = "#4b819a";
+	elem.style.background = "#5FB7F5";
 }

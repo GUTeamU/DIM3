@@ -1,6 +1,17 @@
-.whiteboard {
-	width:980px;
+@import url('http://fonts.googleapis.com/css?family=Lato:400,700,400italic');
+
+* {
+	font-family: Lato;
+}
+
+
+#whiteboard {
+	position:center;
+	width:1000px;
     margin:0px;
-    height:600px;
+    height:650px;
     background:#ccc;
+    border-style:groove;
+    border-color:black;
+    border-radius:10px
 }
