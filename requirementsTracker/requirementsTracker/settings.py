@@ -165,7 +165,7 @@ AUTHENTICATION_BACKENDS = (
 #OPENID_CREATE_USERS = True
 LOGIN_URL             = '/login'
 LOGOUT_UTL            = '/logout'
-LOGIN_REDIRECT_URL    = '/rct/'
+LOGIN_REDIRECT_URL    = '/rct'
 LOGIN_ERROR_URL       = 'login-error'
 
 SOCIAL_AUTH_DEFAULT_USERNAME = 'new_social_auth_user'
@@ -175,6 +175,16 @@ SOCIAL_AUTH_NONCE_SERVER_URL_LENGTH = 16
 SOCIAL_AUTH_ASSOCIATION_SERVER_URL_LENGTH = 16
 
 SOCIAL_AUTH_ENABLED_BACKENDS = ('google','github','facebook','twitter')
+
+SOCIAL_AUTH_PIPELINE =(
+    'social_auth.backends.pipeline.social.social_auth_user',
+    #'social_auth.backends.pipeline.associate.associate_by_email',
+    'social_auth.backends.pipeline.user.get_username',
+    'social_auth.backends.pipeline.user.create_user',
+    'social_auth.backends.pipeline.social.associate_user',
+    'social_auth.backends.pipeline.social.load_extra_data',
+    'social_auth.backends.pipeline.user.update_user_details'
+    )
 
 GITHUB_APP_ID = '57c52b8ad3df9625395f'
 GITHUB_API_SECRET = '494841b17fd792f0979690c9ddcb5425336da0ab'

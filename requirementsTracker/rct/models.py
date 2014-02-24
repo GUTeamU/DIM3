@@ -9,7 +9,7 @@ class CustomUserManager(models.Manager):
 class CustomUser(models.Model):
     username = models.CharField(max_length=128)
     last_login = models.DateTimeField(blank=True, null=True)
-
+    email = models.CharField(max_length=128)
     objects = CustomUserManager()
 
     def is_authenticated(self):
