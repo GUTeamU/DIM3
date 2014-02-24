@@ -1,8 +1,8 @@
-@import url('http://fonts.googleapis.com/css?family=Lato:400,700,400italic');
+/*@import url('http://fonts.googleapis.com/css?family=Lato:400,700,400italic');*/
 
-* {
-	font-family: Lato;
-}
+/** {*/
+/*	font-family: Lato;*/
+/*}*/
 
 
 #whiteboard {
@@ -10,7 +10,7 @@
 	width:1000px;
     margin:0px;
     height:650px;
-    background:#ccc;
+    background:#DB8484;
     border-style:groove;
     border-color:black;
     border-radius:10px

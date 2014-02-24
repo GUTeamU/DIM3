@@ -15,5 +15,5 @@ function couldHave() {
 
 function wouldLike() {
 	var elem = document.getElementById("whiteboard");
-	elem.style.background = "#5FB7F5";
+	elem.style.background = "#8DB7D9";
 }
