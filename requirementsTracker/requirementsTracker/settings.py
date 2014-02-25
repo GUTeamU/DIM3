@@ -132,6 +132,7 @@ TEMPLATE_DIRS = (
 TEMPLATE_CONTEXT_PROCESSORS = (
     'social_auth.context_processors.social_auth_by_type_backends',
     #'django.core.context_processors.auth',
+    'django.contrib.auth.context_processors.auth',
     )
 
 INSTALLED_APPS = (
@@ -159,7 +160,9 @@ AUTHENTICATION_BACKENDS = (
     'social_auth.backends.google.GoogleBackend',
     'social_auth.backends.contrib.github.GithubBackend',
     'social_auth.backends.OpenIDBackend',
+    'social_auth.backends.contrib.linkedin.LinkedinBackend',
     'django.contrib.auth.backends.ModelBackend',
+
     )
 
 #OPENID_CREATE_USERS = True
@@ -197,7 +200,21 @@ TWITTER_CONSUMER_SECRET      = 'PZuhsx0l2A1cYWix5PUKKACisG1H2VgcQBdOw'
 
 FACEBOOK_APP_ID='214627482066657'
 FACEBOOK_API_SECRET='a090256b4310732946f6c338f9a98f3d'
+FACEBOOK_EXTENDED_PERMISSIONS = ['email']
 
+LINKEDIN_CONSUMER_KEY = '75y60qzd3jorg0'
+LINKEDIN_CONSUMER_SECRET = 'TS4qAwBbsqyxr1GJ'
+LINKEDIN_SCOPE = ['r_basicprofile', 'r_emailaddress',]
+LINKEDIN_EXTRA_FIELD_SELECTORS = [
+    'first-name',
+    'last-name',
+    'email-address',
+    ]
+
+LINKEDIN_EXTRA_DATA = [
+    ('id', 'id'),
+    ('first-name', 'first_name'),
+    ('last-name', 'last_name'),] + [(field, field.replace('-', '_'), True) for field in LINKEDIN_EXTRA_FIELD_SELECTORS]
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
