@@ -144,11 +144,11 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django_openid_auth',
     'rct',
-    # Uncomment the next line to enable the admin:
     'django.contrib.admin',
+    'social_auth',
     # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
-    'social_auth'
+    'django.contrib.admindocs'
+
 )
 
 AUTHENTICATION_BACKENDS = (
@@ -177,17 +177,18 @@ SOCIAL_AUTH_ASSOCIATION_HANDLE_LENGTH = 16
 SOCIAL_AUTH_NONCE_SERVER_URL_LENGTH = 16
 SOCIAL_AUTH_ASSOCIATION_SERVER_URL_LENGTH = 16
 
-SOCIAL_AUTH_ENABLED_BACKENDS = ('google','github','facebook','twitter')
+SOCIAL_AUTH_ENABLED_BACKENDS = ('google','github','facebook','twitter','linkedin')
 
-SOCIAL_AUTH_PIPELINE =(
-    'social_auth.backends.pipeline.social.social_auth_user',
-    #'social_auth.backends.pipeline.associate.associate_by_email',
-    'social_auth.backends.pipeline.user.get_username',
-    'social_auth.backends.pipeline.user.create_user',
-    'social_auth.backends.pipeline.social.associate_user',
-    'social_auth.backends.pipeline.social.load_extra_data',
-    'social_auth.backends.pipeline.user.update_user_details'
-    )
+# SOCIAL_AUTH_PIPELINE =(
+#     'social_auth.backends.pipeline.social.social_auth_user',
+#     #'social_auth.backends.pipeline.associate.associate_by_email',
+#     'social_auth.backends.pipeline.user.get_username',
+#     'social_auth.backends.pipeline.user.create_user',
+#     'social_auth.backends.pipeline.social.associate_user',
+#     'social_auth.backends.pipeline.social.load_extra_data',
+#     'social_auth.backends.pipeline.user.update_user_details'
+#     'rct.pipeline.update_avatar'
+#     )
 
 GITHUB_APP_ID = '57c52b8ad3df9625395f'
 GITHUB_API_SECRET = '494841b17fd792f0979690c9ddcb5425336da0ab'

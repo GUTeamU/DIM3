@@ -9,3 +9,7 @@ def login(request):
 def index(request):
 	context = RequestContext(request)
 	return render_to_response('rct/index.html',context)
+
+def projectBoard(request):
+	context = RequestContext(request)
+	return render_to_response('rct/projectBoard.html',context)
