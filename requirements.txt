@@ -3,6 +3,7 @@ South==0.8.4
 django-openid-auth==0.3
 django-profiles==0.2
 django-social-auth==0.7.28
+docutils==0.11
 httplib2==0.8
 oauth2==1.5.211
 python-openid==2.2.5
