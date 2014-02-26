@@ -13,15 +13,13 @@
 #header {		
 	font-family:"Verdana",Verdana, sans-serif;
 	background-color:rgba(192,192,192,0.3);
-	text-align:center;
-	
+	text-align:center;	
 }
 
 #container {
 	text-align:center;
 	vertical-align:bottom;
     text-decoration:none;
-	
 }
 
 #signup {
