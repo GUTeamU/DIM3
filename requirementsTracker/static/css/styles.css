@@ -1,11 +1,36 @@
 #whiteboard {
-	position:center;
+	position:absolute
 	width:1000px;
     margin:0px;
     height:650px;
     background:#DB8484;
     border-style:groove;
     border-color:black;
-    border-radius:10px
+    border-radius:10px;
+    text-align: center;
+}
+ 
+#header {		
+	font-family:"Verdana",Verdana, sans-serif;
+	background-color:rgba(192,192,192,0.3);
+	text-align:center;
+	
 }
 
+#container {
+	text-align:center;
+	vertical-align:bottom;
+    text-decoration:none;
+	
+}
+
+#signup {
+	text-align:center;
+	vertical-align:center;
+	font-family:"Verdana",Verdana,sans-serif;
+	font-size:20px;
+}
+
+#buttons {
+	margin:0 auto;
+}

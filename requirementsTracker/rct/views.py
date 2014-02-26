@@ -13,3 +13,7 @@ def index(request):
 def projectBoard(request):
 	context = RequestContext(request)
 	return render_to_response('rct/projectBoard.html',context)
+	
+def signup(request):
+	context = RequestContext(request)
+	return render_to_response('rct/signup.html',context)

@@ -24,7 +24,7 @@
                 
                     <ul class = "nav navbar-nav navbar-right">
  
-                        <li class = "active"><a href = "rct">Home</a></li>
+                        <li class = "active"><a href = "../">Home</a></li>
                         <li><a href = "#"><span class="glyphicon glyphicon-cog"></span> </a></li>
                         <li><a href = "#">Add New Task</a></li>
                         <li><a href = "#">Add New Member</a></li>
@@ -36,14 +36,19 @@
             </div>
         </div>
 
+        <div id="header">
+            <h1>Project Whiteboard</h1>
+        </div>
+
         <div class = "container">
-            <center><h1>Project Whiteboard</h1>
             <div id = "whiteboard" class = "whiteboard">
-                    <button type="button" class="btn btn-danger btn-lg" id="must-have" onclick="mustHave()">Must Have</button>
-                    <button type="button" class="btn btn-warning btn-lg" id="should-have" onclick="shouldHave()">Should Have</button>
-                    <button type="button" class="btn btn-success btn-lg" id="could-have" onclick="couldHave()">Could Have</button>
-                    <button type="button" class="btn btn-primary btn-lg" id="would-like" onclick="wouldLike()">Would Like</button>
-            <div>
+                <div id = "buttons" class="btn-group" data-toggle="buttons">
+                        <button type="button" class="btn btn-danger btn-lg" id="must-have" onclick="mustHave()">Must Have</button>
+                        <button type="button" class="btn btn-warning btn-lg" id="should-have" onclick="shouldHave()">Should Have</button>
+                        <button type="button" class="btn btn-success btn-lg" id="could-have" onclick="couldHave()">Could Have</button>
+                        <button type="button" class="btn btn-primary btn-lg" id="would-like" onclick="wouldLike()">Would Like</button>
+                </div>
+            </div>
         </div>
 
 
