@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DIM Project</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href = "../../static/css/bootstrap.min.css" rel = "stylesheet">
+        <link href = "../../static/css/styles.css" rel = "stylesheet">
+        <script type="text/javascript" src="../../static/js/projectBoard.js"></script>
+    </head>
+    <body>
+
+        <div class = "navbar navbar-inverse navbar-static-top">
+            <div class = "container">
+                
+                <a href = "#" class = "navbar-brand">ToDoList</a>
+                
+                <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
+                    <span class = "icon-bar"></span>
+                    <span class = "icon-bar"></span>
+                    <span class = "icon-bar"></span>
+                </button>
+                
+                <div class = "collapse navbar-collapse navHeaderCollapse">
+                
+                    <ul class = "nav navbar-nav navbar-right">
+ 
+                        <li class = "active"><a href = "../">Home</a></li>
+                        <li><a href = "#"><span class="glyphicon glyphicon-cog"></span> </a></li>
+                        <li><a href = "#">Add New Task</a></li>
+                        <li><a href = "#">Add New Member</a></li>
+                    
+                    </ul>
+                
+                </div>
+                
+            </div>
+        </div>
+
+        <div id="header">
+            <h1>Project Whiteboard</h1>
+        </div>
+
+        <div class = "container">
+            <div id = "whiteboard" class = "whiteboard">
+                <div id = "buttons" class="btn-group" data-toggle="buttons">
+                        <button type="button" class="btn btn-danger btn-lg" id="must-have" onclick="mustHave()">Must Have</button>
+                        <button type="button" class="btn btn-warning btn-lg" id="should-have" onclick="shouldHave()">Should Have</button>
+                        <button type="button" class="btn btn-success btn-lg" id="could-have" onclick="couldHave()">Could Have</button>
+                        <button type="button" class="btn btn-primary btn-lg" id="would-like" onclick="wouldLike()">Would Like</button>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </body>
+</html>
+        
