@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ToDo List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href = "../../static/css/bootstrap.min.css" rel = "stylesheet">
+    <link href = "../../static/css/styles.css" rel = "stylesheet">
+
+</head>
+
+<body>
+    <div class = "navbar navbar-inverse navbar-static-top">
+        <div class = "container">
+
+            <a href = "#" class = "navbar-brand">ToDoList</a>
+
+            <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
+                <span class = "icon-bar"></span>
+                <span class = "icon-bar"></span>
+                <span class = "icon-bar"></span>
+            </button>
+
+            <div class = "collapse navbar-collapse navHeaderCollapse">
+
+                <ul class = "nav navbar-nav navbar-right">
+
+                    <li class = "active"><a href = "/rct/">Home</a></li>
+                    <li><a href = "#"><span class="glyphicon glyphicon-cog"></span> </a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+
+    <div id="header">
+        <h1>Login</h1>
+    </div>
+    <div class = "container" </div>
+    
+    <form id="login_form" method="post" action="/rct/loginManual/">
+        {% csrf_token %}
+        Username: <input type="text" name="username" value="" size="50" />
+        <br />
+        Password: <input type="password" name="password" value="" size="50" />
+        <br />
+
+        <input type="submit" value="submit" />
+    </form>
+
+</body>
+</html>
