@@ -12,7 +12,7 @@
  
 #header {		
 	font-family:"Verdana",Verdana, sans-serif;
-	background-color:rgba(192,192,192,0.3);
+	background-color:rgba(255,255,255,0.3);
 	text-align:center;	
 }
 
@@ -20,6 +20,17 @@
 	text-align:center;
 	vertical-align:bottom;
     text-decoration:none;
+}
+
+#mycontainer {
+    width: 500px;
+    clear: both;
+    margin: 0 auto;
+}
+
+#mycontainer input{
+    width: 100%;
+    clear: both;	
 }
 
 #signup {
@@ -32,3 +43,4 @@
 #buttons {
 	margin:0 auto;
 }
+

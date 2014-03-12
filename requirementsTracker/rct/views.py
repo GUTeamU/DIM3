@@ -29,6 +29,7 @@ def signup(request):
 			user.save()
 
 			registered = True
+			return HttpResponseRedirect('/rct/login')
 		else:
 			print user_form.errors
 	else:

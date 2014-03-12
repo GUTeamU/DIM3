@@ -56,8 +56,29 @@
         <div id="signup">
             <br></br>
         	<p><a href="/rct/signup">Alternatively, click here to sign up!</a></p></br>
-            <p><a href="/rct/loginManual">Click here to login normally!</a></p>
         </div>
+
+        <div id="header">
+            <h3>Or Login Manually:</h1>
+         </div>
+
+        <div id = "mycontainer" </div>
+
+    
+        <form id="login_form" method="post" action="/rct/loginManual/">
+            {% csrf_token %}
+            
+            <input type="text" class="form-control" placeholder="Username" name="username" value="" size="50">
+            <br>
+
+            <input type="password" class="form-control" placeholder="Password" name="password" value="" size="50">
+            <br>
+
+            <form>
+
+
+            <input type="submit" value="submit" />
+        </form>
 
     </body>
 

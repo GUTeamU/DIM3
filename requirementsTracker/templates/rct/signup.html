@@ -43,7 +43,7 @@
         <a href="/rct/">Return to index.</a><br/>
         {% else %}
 
-        <div class = "container" </div>
+       <!--  <div class = "container" </div>
 
         <form id="user_form" method="post" action="/rct/signup/"
                 enctype="multipart/form-data">
@@ -52,12 +52,38 @@
             {{ user_form.as_p }}
             
 
-            <!-- Provide a button to click to submit the form. -->
-            <input type="submit" name="submit" value="Register" />
+         <!-- Provide a button to click to submit the form. -->
+         <!--    <input type="submit" name="submit" value="Register" />
         </form>
         {% endif %}
         
-        </div>
+        </div>  -->
+
+        <div id = "mycontainer" </div>
+
+    
+        <form id="user_form" method="post" action="/rct/signup/">
+            {% csrf_token %}
+
+            <input type="text" class="form-control" placeholder="*Username (less than 30 characters)" name="username" value="" size="50">
+            <br>
+
+            <input type="text" class="form-control" placeholder="First Name" name="firstName" value="" size="50">
+            <br>
+
+            <input type="text" class="form-control" placeholder="Last Name" name="lastName" value="" size="50">
+            <br>
+
+            <input type="text" class="form-control" placeholder="*Email Address" name="email" value="" size="50">
+            <br>
+
+            <input type="password" class="form-control" placeholder="Password" name="password" value="" size="50">
+            <br>
+
+            <form>
+
+            <input type="submit" value="Register" />
+        </form>
 
     </body>
 
