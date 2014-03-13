@@ -6,7 +6,7 @@ DIM3 - Requirements Tracker
 1. Create and run your virtual enviroment.
     ```bash
     virtualenv VENV
-    source VENV
+    source VENV/bin/activate
     ```
 
 2. Install the dependencies

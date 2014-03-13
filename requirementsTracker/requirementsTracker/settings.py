@@ -151,7 +151,6 @@ INSTALLED_APPS = (
 )
 
 AUTHENTICATION_BACKENDS = (
-    'django_openid_auth.auth.OpenIDBackend',
     'social_auth.backends.twitter.TwitterBackend',
     'social_auth.backends.facebook.FacebookBackend',
     'social_auth.backends.google.GoogleOAuthBackend',
@@ -166,7 +165,7 @@ AUTHENTICATION_BACKENDS = (
 
 #OPENID_CREATE_USERS = True
 LOGIN_URL             = '/login'
-LOGOUT_UTL            = '/logout'
+LOGOUT_URL            = '/logout'
 LOGIN_REDIRECT_URL    = '/rct'
 LOGIN_ERROR_URL       = 'login-error'
 
