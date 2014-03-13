@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href = "../../static/css/bootstrap.min.css" rel = "stylesheet">
         <link href = "../../static/css/styles.css" rel = "stylesheet">
+        <script type="text/javascript" src="../../static/js/signup.js"></script>
         <title>Requirements Tracker</title>
     </head>
 
@@ -35,55 +36,43 @@
             </div>
         </div>
 
+
         <div id="header">
             <h1>Create an Account</h1>
         </div>
-        {% if registered %}
-        <strong>Thank you for signing up!</strong>
-        <a href="/rct/">Return to index.</a><br/>
-        {% else %}
 
-       <!--  <div class = "container" </div>
 
-        <form id="user_form" method="post" action="/rct/signup/"
-                enctype="multipart/form-data">
 
-            {% csrf_token %}
-            {{ user_form.as_p }}
-            
-
-         <!-- Provide a button to click to submit the form. -->
-         <!--    <input type="submit" name="submit" value="Register" />
-        </form>
-        {% endif %}
         
-        </div>  -->
-
-        <div id = "mycontainer" </div>
-
+        <div id = "mycontainer">
     
-        <form id="user_form" method="post" action="/rct/signup/">
-            {% csrf_token %}
+            <form id="user_form" method="post" action="/rct/signup/">
+                {% csrf_token %}
 
-            <input type="text" class="form-control" placeholder="*Username (less than 30 characters)" name="username" value="" size="50">
-            <br>
+                <input type="text" class="form-control" placeholder="*Username (less than 30 characters)" name="username" value="" size="50">
+                <br>
 
-            <input type="text" class="form-control" placeholder="First Name" name="firstName" value="" size="50">
-            <br>
+                <input type="text" class="form-control" placeholder="First Name" name="first_name" value="" size="50">
+                <br>
 
-            <input type="text" class="form-control" placeholder="Last Name" name="lastName" value="" size="50">
-            <br>
+                <input type="text" class="form-control" placeholder="Last Name" name="last_name" value="" size="50">
+                <br>
 
-            <input type="text" class="form-control" placeholder="*Email Address" name="email" value="" size="50">
-            <br>
+                <input type="text" class="form-control" placeholder="*Email Address" name="email" value="" size="50">
+                <br>
 
-            <input type="password" class="form-control" placeholder="Password" name="password" value="" size="50">
-            <br>
+                <input type="password" class="form-control" placeholder="Password" name="password" value="" size="50">
+                <br>
 
-            <form>
+            </form>
 
-            <input type="submit" value="Register" />
-        </form>
+        </div>
+
+        <button id="register" class="btn btn-default" type="button" onclick="submitForm()">  Register </button>
+        
+        {% if registered %}
+            <a href="/rct/">Return to index.</a><br/>
+        {% endif %}
 
     </body>
 
