@@ -1,3 +1,57 @@
+/* ------------------------------------------------------ */
+/* General */
+/* ------------------------------------------------------ */
+
+#header {       
+    font-family:"Verdana",Verdana, sans-serif;
+    background-color:rgba(255,255,255,0.3);
+    text-align:center;  
+}
+
+#container {
+    text-align:center;
+    vertical-align:bottom;
+    text-decoration:none;
+}
+
+
+/* ------------------------------------------------------ */
+/* Index */
+/* ------------------------------------------------------ */
+
+
+/* ------------------------------------------------------ */
+/* Login */
+/* ------------------------------------------------------ */
+
+ 
+#mycontainer {
+    width: 500px;
+    clear: both;
+    margin: 0 auto;
+}
+
+#mycontainer input{
+    width: 100%;
+    clear: both;    
+}
+
+#signup {
+    text-align:center;
+    vertical-align:center;
+    font-family:"Verdana",Verdana,sans-serif;
+    font-size:20px;
+}
+
+/* ------------------------------------------------------ */
+/* Signup */
+/* ------------------------------------------------------ */
+
+
+/* ------------------------------------------------------ */
+/* ProjectBoard */
+/* ------------------------------------------------------ */
+
 #whiteboard {
 	position:absolute
 	width:1000px;
@@ -9,38 +63,33 @@
     border-radius:10px;
     text-align: center;
 }
- 
-#header {		
-	font-family:"Verdana",Verdana, sans-serif;
-	background-color:rgba(255,255,255,0.3);
-	text-align:center;	
+
+.blocks .btn-danger {
+    padding: 18px 120px 18px 22px; 
+    border-radius: 0 auto;
+    text-align: center;
+} 
+
+.blocks .btn-warning {
+    padding: 18px 126px 18px 16px; 
+    border-radius: 0 auto;
+    text-align: center;
+} 
+
+.blocks .btn-success {
+    padding: 18px 120px 18px 22px; 
+    border-radius: 0 auto;
+    text-align: center;
+} 
+
+.blocks .btn-primary {
+    padding: 18px 120px 18px 22px; 
+    border-radius: 0 auto;
+    text-align: center;
+} 
+
+.blocks {
+    border-spacing:10px;
 }
 
-#container {
-	text-align:center;
-	vertical-align:bottom;
-    text-decoration:none;
-}
-
-#mycontainer {
-    width: 500px;
-    clear: both;
-    margin: 0 auto;
-}
-
-#mycontainer input{
-    width: 100%;
-    clear: both;	
-}
-
-#signup {
-	text-align:center;
-	vertical-align:center;
-	font-family:"Verdana",Verdana,sans-serif;
-	font-size:20px;
-}
-
-#buttons {
-	margin:0 auto;
-}
 
