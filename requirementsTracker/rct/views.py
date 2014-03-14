@@ -16,6 +16,9 @@ def index(request):
 
         projects = Project.objects.all()
         context_dict = {'projects' : projects}
+        
+        for p in projects:
+            p.url = p.name.replace(' ', '_').lower()
 
 	return render_to_response('rct/index.html', context_dict, context)
 
@@ -33,6 +36,18 @@ def create_project(request):
         form = ProjectForm()
 
     return render_to_response('rct/projects/create.html', {'form':form}, context)
+
+def view_project(request, url):
+    context = RequestContext(request)
+    context_dict = {}
+
+    try:
+        context_dict['project'] = Project.objects.get(name__iexact=url.replace('_', ' '))
+    except Project.DoesNotExist:
+        # TODO redirect to 404
+        pass
+
+    return render_to_response('rct/projects/view.html', context_dict, context)
 
 def projectBoard(request):
 	context = RequestContext(request)
