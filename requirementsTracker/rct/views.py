@@ -1,7 +1,8 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.core.urlresolvers import reverse
 from django.template import RequestContext
 from django.shortcuts import render_to_response
-from rct.forms import UserForm
+from rct.forms import UserForm, ProjectForm
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect
 from rct.models import Project
@@ -17,6 +18,21 @@ def index(request):
         context_dict = {'projects' : projects}
 
 	return render_to_response('rct/index.html', context_dict, context)
+
+def create_project(request):
+    context = RequestContext(request)
+
+    if request.method == 'POST':
+        form = ProjectForm(request.POST)
+        if form.is_valid():
+            form.save(commit=True)
+
+            return HttpResponseRedirect(reverse('rct.views.index'))
+
+    else:
+        form = ProjectForm()
+
+    return render_to_response('rct/projects/create.html', {'form':form}, context)
 
 def projectBoard(request):
 	context = RequestContext(request)
