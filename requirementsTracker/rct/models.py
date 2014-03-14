@@ -85,4 +85,4 @@ class Task(models.Model):
     category = models.TextField()
 
     def __unicode__(self):
-        return self.name
+        return self.title
