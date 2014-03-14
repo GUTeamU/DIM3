@@ -4,6 +4,7 @@ from django.shortcuts import render_to_response
 from rct.forms import UserForm
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect
+from rct.models import Project
 
 def login(request):
 	context = RequestContext(request)
@@ -11,7 +12,11 @@ def login(request):
 
 def index(request):
 	context = RequestContext(request)
-	return render_to_response('rct/index.html',context)
+
+        projects = Project.objects.all()
+        context_dict = {'projects' : projects}
+
+	return render_to_response('rct/index.html', context_dict, context)
 
 def projectBoard(request):
 	context = RequestContext(request)

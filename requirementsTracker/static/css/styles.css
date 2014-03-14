@@ -8,16 +8,13 @@
     text-align:center;  
 }
 
-#container {
-    text-align:center;
-    vertical-align:bottom;
-    text-decoration:none;
-}
-
-
 /* ------------------------------------------------------ */
 /* Index */
 /* ------------------------------------------------------ */
+
+div.container div.jumbotron {
+    text-align: center;
+}
 
 
 /* ------------------------------------------------------ */
