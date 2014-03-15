@@ -68,6 +68,26 @@ def view_project(request, url):
 
     return render_to_response('rct/projects/view.html', context_dict, context)
 
+## Broken function
+def add_task(request,url):
+
+	context = RequestContext(request)
+	context_dict = {}
+	try:
+		context_dict['project'] = Project.objects.get(name__iexact=url.replace('_',' '))
+	except Project.DoesNotExist:
+		pass
+	if request.method == 'POST':
+		form = TaskForm(request.POST)
+		if form.is_valid():
+			form.save(commit=True)
+
+			return HttpResponseRedirect(reverse('rct.views.index'))
+	else:
+		form = TaskForm()
+	return render_to_response('rct/tasks/create.html', {'form':form}, context)
+
+
 def projectBoard(request):
 	context = RequestContext(request)
 	return render_to_response('rct/projectBoard.html',context)
