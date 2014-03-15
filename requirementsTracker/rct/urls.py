@@ -8,8 +8,7 @@ urlpatterns = patterns('',
         url(r'^project/create/$', views.create_project, name='create_project'),
         url(r'^project/(?P<url>\w+)/$', views.view_project, name='project'),
         url(r'^signup/$', views.signup, name='signup'),
-        url(r'^loginManual/$', views.loginManual, name='loginManual'),
-		url(r'^$', views.index, name='index'),
+	url(r'^$', views.index, name='index'),
 
 
 		#url(r'^project/(?P<url>\w+)/add_task/$',views.add_task, name='add_task'), #new addition

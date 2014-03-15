@@ -9,6 +9,19 @@ from rct.models import Project
 
 def login(request):
 	context = RequestContext(request)
+	if request.method == 'POST':
+		username = request.POST['username']
+		password = request.POST['password']
+
+		user = authenticate(username=username, password=password)
+
+		if user is not None:
+			if user.is_active:
+				return HttpResponseRedirect('/rct/')
+			else:
+				return HttpResponse("Inactive account used!")
+		else:
+			return HttpResponse("Invalid login details")	
 	return render_to_response('rct/login.html',context)
 
 def index(request):
@@ -72,28 +85,6 @@ def signup(request):
 		user_form = UserForm()
 
 	return render_to_response('rct/signup.html',{'user_form': user_form , 'registered':registered},context)
-
-
-def loginManual(request):
-
-	context = RequestContext(request)
-	if request.method == 'POST':
-		username = request.POST['username']
-		password = request.POST['password']
-
-		user = authenticate(username=username, password=password)
-
-		if user is not None:
-			if user.is_active:
-				login(request,user)
-				return HttpResponseRedirect('/rct/')
-			else:
-				return HttpResponse("Inactive account used!")
-		else:
-			return HttpResponse("Invalid login details")
-	else:
-		return render_to_response('rct/loginManual.html',context)
-
 
 def user_logout(request):
     logout(request)
