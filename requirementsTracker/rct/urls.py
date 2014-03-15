@@ -10,4 +10,7 @@ urlpatterns = patterns('',
         url(r'^loginManual/$', views.loginManual, name='loginManual'),
 		url(r'^$', views.index, name='index'),
 		
+        #url(r'^logout/$',views.logout, name='logout'),
+		#url(r'^project/(?P<url>\w+)/add_task/$',views.add_task, name='add_task'), #new addition
+        #url(r'^project/(?P<url>\w+)/(?P<task_url>\w+)/$',views.task, name='task'), # also new
 		)

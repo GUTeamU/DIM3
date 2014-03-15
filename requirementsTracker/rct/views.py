@@ -94,3 +94,7 @@ def loginManual(request):
 	else:
 		return render_to_response('rct/loginManual.html',context)
 
+
+def user_logout(request):
+    logout(request)
+    return HttpResponseRedirect('/track/')
