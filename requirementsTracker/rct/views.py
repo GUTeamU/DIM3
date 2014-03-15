@@ -6,17 +6,23 @@ from rct.forms import UserForm, ProjectForm
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from rct.models import Project
+from django.contrib.auth.models import User
 
-def login(request):
+def user_login(request):
 	context = RequestContext(request)
 	if request.method == 'POST':
-		username = request.POST['username']
+		email = request.POST['email']
 		password = request.POST['password']
+		
+		user = User.objects.get(email=email)
+		if(user.password=="!"):
+			print "Social Auth"
+		
+		auth = authenticate(username=user, password=password)
 
-		user = authenticate(username=username, password=password)
-
-		if user is not None:
-			if user.is_active:
+		if auth is not None:
+			if auth.is_active:
+				login(request, auth)
 				return HttpResponseRedirect('/rct/')
 			else:
 				return HttpResponse("Inactive account used!")
@@ -72,6 +78,7 @@ def signup(request):
 	registered = False
 	if request.method == 'POST':
 		user_form = UserForm(data=request.POST)
+		
 		if user_form.is_valid():
 			user = user_form.save()
 			user.set_password(user.password)

@@ -63,23 +63,20 @@
             <h3>Or Login Manually:</h1>
          </div>
 
-        <div id = "mycontainer" </div>
+        <div id = "mycontainer">
 
     
-        <form id="login_form" method="post" action="/rct/login/">
-            {% csrf_token %}
-            
-            <input type="text" class="form-control" placeholder="Username" name="username" value="" size="50">
-            <br>
+            <form id="login_form" method="post" action="/rct/login/">
+                {% csrf_token %}
+                
+                <input type="text" class="form-control" placeholder="E-mail" name="email" value="" size="50">
+                <br>
 
-            <input type="password" class="form-control" placeholder="Password" name="password" value="" size="50">
-            <br>
-
-            <form>
-
-
-            <input type="submit" value="submit" />
-        </form>
+                <input type="password" class="form-control" placeholder="Password" name="password" value="" size="50">
+                <br>
+                <input type="submit" value="submit" />
+            </form>
+        </div>
         {% endif %}
 
         {% if user.is_authenticated %}
