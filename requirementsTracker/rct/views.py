@@ -3,7 +3,7 @@ from django.core.urlresolvers import reverse
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 from rct.forms import UserForm, ProjectForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from rct.models import Project
 
@@ -97,4 +97,4 @@ def loginManual(request):
 
 def user_logout(request):
     logout(request)
-    return HttpResponseRedirect('/track/')
+    return HttpResponseRedirect('/rct/login')
