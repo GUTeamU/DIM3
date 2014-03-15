@@ -85,7 +85,7 @@ def loginManual(request):
 
 		if user is not None:
 			if user.is_active:
-				loginManual(request,user)
+				login(request,user)
 				return HttpResponseRedirect('/rct/')
 			else:
 				return HttpResponse("Inactive account used!")

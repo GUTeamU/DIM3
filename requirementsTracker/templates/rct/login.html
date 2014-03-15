@@ -13,6 +13,7 @@
     </head>
 
     <body>
+        {% if user.is_anonymous %}
 
 
  <div class = "navbar navbar-inverse navbar-static-top">
@@ -79,7 +80,11 @@
 
             <input type="submit" value="submit" />
         </form>
+        {% endif %}
 
+        {% if user.is_authenticated %}
+            <meta http-equiv="refresh" content="0;/rct/"/>
+        {% endif %}
     </body>
 
 </html>
