@@ -1,4 +1,4 @@
-from rct.models import UserProfile, Project
+from rct.models import UserProfile, Project, Task
 from django.contrib.auth.models import User
 from django import forms
 
