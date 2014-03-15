@@ -2,7 +2,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.template import RequestContext
 from django.shortcuts import render_to_response
-from rct.forms import UserForm, ProjectForm
+from rct.forms import UserForm, ProjectForm, TaskForm
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from rct.models import Project
