@@ -14,10 +14,11 @@ class UserForm(forms.ModelForm):
 		fields = ('username', 'password', 'first_name','last_name','email')
 
 class ProjectForm(forms.ModelForm):
-
-    class Meta:
-        model = Project
-        fields = ('name', 'description')
+	name = forms.CharField(max_length=32,help_text= "Enter a name for your project")
+	description = forms.CharField(max_length=256,help_text= "Enter a description")
+	class Meta:
+		model = Project
+		fields = ('name', 'description')
 
 class TaskForm(forms.ModelForm):
 
