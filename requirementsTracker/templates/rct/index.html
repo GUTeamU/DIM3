@@ -15,7 +15,8 @@
             <div class="jumbotron">
                 <h1>{{ project.name }}</h1>
                 <p><i>{{ project.description }}</i></p>
-                <a href="{% url 'project' project.url %}" class ="btn btn-default">View Whiteboard</a></br>
+                <a href="{% url 'project' project.url %}" class ="btn btn-default">View Whiteboard</a>
+                <br></br>
                 <a href='/rct/project/{{project.name}}/delete/' class ="btn btn-default">Delete Project</a>
 
             </div>
