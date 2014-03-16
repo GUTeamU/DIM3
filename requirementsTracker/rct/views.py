@@ -122,11 +122,13 @@ def signup(request):
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect('/rct/login')
-    
+
 def delete_task(id):
 	toDelete = Task.objects.filter(id=id)
 	toDelete.delete()
 
-def delete_project(id):
-	toDelete = Project.objects.filter(id=id)
-	toDelete.delete()
+def delete_project(request,url):
+	proj_name = url.replace("_"," ")
+	to_delete = Project.objects.filter(name=proj_name)
+	to_delete.delete()
+	return HttpResponseRedirect('/rct/')
