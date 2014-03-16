@@ -47,7 +47,9 @@ def create_project(request):
     if request.method == 'POST':
         form = ProjectForm(request.POST)
         if form.is_valid():
-            form.save(commit=True)
+            project = form.save(commit=True)
+            project.url = project.name.replace(' ', '_')
+            project.save()
 
             return HttpResponseRedirect(reverse('rct.views.index'))
 
@@ -61,22 +63,23 @@ def view_project(request, url):
     context_dict = {}
 
     try:
-        context_dict['project'] = Project.objects.get(name__iexact=url.replace('_', ' '))
+        context_dict['project'] = Project.objects.get(url__iexact=url)
     except Project.DoesNotExist:
         # TODO redirect to 404
         pass
 
     return render_to_response('rct/projects/view.html', context_dict, context)
 
-## Broken function
-def add_task(request,url):
+
+def add_task(request, url):
 
 	context = RequestContext(request)
 	context_dict = {}
 	try:
-		context_dict['project'] = Project.objects.get(name__iexact=url.replace('_',' '))
+		context_dict['project'] = Project.objects.get(url__iexact=url)
 	except Project.DoesNotExist:
 		pass
+	
 	if request.method == 'POST':
 		form = TaskForm(request.POST)
 		if form.is_valid():
