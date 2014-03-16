@@ -14,7 +14,11 @@
 
     <link href = "{% static 'css/bootstrap.min.css' %}" rel = "stylesheet">
     <link href = "{% static 'css/styles.css' %}" rel = "stylesheet">
-
+    
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        
+    {{ form.media }}
     {% block extra_scripts %}{% endblock %}
 
 <link rel="shortcut icon" type="image/x-icon" href="{% static '/images/favicon.ico' %}">
@@ -87,7 +91,7 @@
         <div class="container">
         {%block body_block %}This is the default content of body-block{% endblock %}
         </div>
-        <script src="{% static "js/bootstrap/bootstrap.min.js" %}"></script>
+       
 
     </body>
 </html>
