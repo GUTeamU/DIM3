@@ -1,44 +1,9 @@
-<!DOCTYPE html>
+{% extends 'rct/base.html' %}
 
-{% load static %}
+{% block nav-add %}{% endblock %}
+{% block nav-tasks %}{% endblock %}
 
-<html>
-
-    <head>
-
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href = "../../static/css/bootstrap.min.css" rel = "stylesheet">
-        <link href = "../../static/css/styles.css" rel = "stylesheet">
-        <title>Requirements Tracker</title>
-    </head>
-
-    <body>
-
-
- <div class = "navbar navbar-inverse navbar-static-top">
-            <div class = "container">
-                
-                <a href = "#" class = "navbar-brand">ToDoList</a>
-                
-                <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
-                    <span class = "icon-bar"></span>
-                    <span class = "icon-bar"></span>
-                    <span class = "icon-bar"></span>
-                </button>
-                
-                <div class = "collapse navbar-collapse navHeaderCollapse">
-                
-                    <ul class = "nav navbar-nav navbar-right">
- 
-                        <li class = "active"><a href = "/rct/">Home</a></li>
-                        <li><a href = "#"><span class="glyphicon glyphicon-cog"></span> </a></li>
-                    
-                    </ul>
-                
-                </div>
-                
-            </div>
-        </div>
+{% block body_block %}
 
 
         <div id="header">
@@ -80,6 +45,4 @@
             <input type="submit" value="submit" />
         </form>
 
-    </body>
-
-</html>
+{% endblock %}
