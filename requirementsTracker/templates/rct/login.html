@@ -2,6 +2,11 @@
 
 {% block nav-add %}{% endblock %}
 {% block nav-tasks %}{% endblock %}
+{% block nav-addMemb %}{% endblock %}
+{% block nav-addTask %}{% endblock %}
+{% block nav-addProj %}{% endblock %}
+
+
 
 {% block body_block %}
 
@@ -9,21 +14,21 @@
         {% if user.is_anonymous %}
 
 
-    	<div id="header">
-    		<h1>Requirements Tracker</h1>
-    	</div>
+        <div id="header">
+            <h1>Requirements Tracker</h1>
+        </div>
         <br></br>
         <div id="container">
-        	<a href="{% url 'socialauth_begin' 'github' %}"><img src="{% static "images/github.jpg"%}" alt="Github logo" style="margin-right:30px;"  style="border: none;"</a>
-        	<a href="{% url 'socialauth_begin' 'facebook' %}"><img src="{% static "images/facebook.jpg"%}" alt="Facebook logo" style="margin-right:30px;" style="border: none;"</a>
-        	<a href="{% url 'socialauth_begin' 'twitter' %}"><img src="{% static "images/twitter.jpg"%}" alt="Twitter logo" style="margin-right:30px;" style="border: none;"</a>
-        	<a href="{% url 'socialauth_begin' 'google-oauth2' %}"><img src="{% static "images/google.jpg"%}" alt="Google logo" style="margin-right:30px;" style="border: none;"</a>
+            <a href="{% url 'socialauth_begin' 'github' %}"><img src="{% static "images/github.jpg"%}" alt="Github logo" style="margin-right:30px;"  style="border: none;"</a>
+            <a href="{% url 'socialauth_begin' 'facebook' %}"><img src="{% static "images/facebook.jpg"%}" alt="Facebook logo" style="margin-right:30px;" style="border: none;"</a>
+            <a href="{% url 'socialauth_begin' 'twitter' %}"><img src="{% static "images/twitter.jpg"%}" alt="Twitter logo" style="margin-right:30px;" style="border: none;"</a>
+            <a href="{% url 'socialauth_begin' 'google-oauth2' %}"><img src="{% static "images/google.jpg"%}" alt="Google logo" style="margin-right:30px;" style="border: none;"</a>
             <a href="{% url 'socialauth_begin' 'linkedin' %}"><img src="{% static "images/linkedin.jpg"%}" alt="Linkedin logo" style="margin-right:30px;" style="border: none;"</a>
         </div>
 
         <div id="signup">
             <br></br>
-        	<p><a href="/rct/signup">Alternatively, click here to sign up!</a></p></br>
+            <p><a href="/rct/signup">Alternatively, click here to sign up!</a></p></br>
         </div>
 
         <div id="header">
