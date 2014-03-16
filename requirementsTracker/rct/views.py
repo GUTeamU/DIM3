@@ -5,7 +5,7 @@ from django.shortcuts import render_to_response
 from rct.forms import UserForm, ProjectForm, TaskForm
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
-from rct.models import Project
+from rct.models import Project, Task
 from django.contrib.auth.models import User
 
 def user_login(request):
@@ -67,7 +67,16 @@ def view_project(request, url):
     except Project.DoesNotExist:
         # TODO redirect to 404
         pass
-
+    
+    try:
+        context_dict['must'] = Task.objects.filter(project=context_dict['project'], priority="M")
+        context_dict['should'] = Task.objects.filter(project=context_dict['project'], priority="S")
+        context_dict['could'] = Task.objects.filter(project=context_dict['project'], priority="C")
+        context_dict['would'] = Task.objects.filter(project=context_dict['project'], priority="W")
+    except Project.DoesNotExist:
+        # TODO redirect to 404
+        pass    
+    
     return render_to_response('rct/projects/view.html', context_dict, context)
 
 
