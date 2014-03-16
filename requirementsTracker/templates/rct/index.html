@@ -4,12 +4,10 @@
 {% extends 'rct/base.html' %}
 
 {% block nav-register %}{% endblock %}
+{% block nav-addMemb %}{% endblock %}
+{% block nav-addTask %}{% endblock %}
 
 {% block body_block %}
-
-{% if user.is_anonymous %}
-    <meta http-equiv="refresh" content="0;url=/rct/login/">
-{% endif %}
 
     <div class="container">
         {% if projects %}
