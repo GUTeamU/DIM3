@@ -88,7 +88,8 @@ def add_task(request, url):
 			return HttpResponseRedirect(reverse('rct.views.index'))
 	else:
 		form = TaskForm()
-	return render_to_response('rct/tasks/create.html', {'form':form}, context)
+	context_dict['form'] = form
+	return render_to_response('rct/tasks/create.html', context_dict, context)
 
 
 def projectBoard(request):
