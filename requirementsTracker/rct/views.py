@@ -83,7 +83,9 @@ def add_task(request, url):
 	if request.method == 'POST':
 		form = TaskForm(request.POST)
 		if form.is_valid():
-			form.save(commit=True)
+			task = form.save(commit=False)
+			task.project = context_dict['project']
+			task.save()
 
 			return HttpResponseRedirect(reverse('rct.views.index'))
 	else:

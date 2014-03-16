@@ -22,9 +22,11 @@ class ProjectForm(forms.ModelForm):
 class TaskForm(forms.ModelForm):
 
 	title = forms.CharField(max_length=32,help_text= "Enter a title")
+	completed = forms.BooleanField(initial=False, required=False, help_text="Tick to indicate if task is completed")
 	deadline = forms.DateTimeField(widget=DateTimeWidget(usel10n = True), help_text="Deadline, click to open widget")
 	description = forms.CharField(max_length=256,help_text= "Enter a description")
 	priority = forms.ChoiceField(choices = PRIORITIES, widget=forms.RadioSelect())
 	category = forms.CharField(max_length=32, help_text= "Enter the type of task")
 	class Meta:
 		model = Task
+		fields = ('title', 'completed', 'deadline', 'description', 'priority', 'category')
