@@ -96,7 +96,7 @@ def add_task(request, url):
 			task.project = context_dict['project']
 			task.save()
 
-			return HttpResponseRedirect(reverse('rct.views.index'))
+			return HttpResponseRedirect(reverse('rct.views.index') + "project/" + url)
 	else:
 		form = TaskForm()
 	context_dict['form'] = form
