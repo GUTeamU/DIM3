@@ -1,44 +1,13 @@
-<!DOCTYPE html>
-{% load static %}
-<html>
-    <head>
 
-        <title>ToDo List</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href = "{% static "css/bootstrap.min.css" %}" rel = "stylesheet">
-        <link href = "{% static "css/styles.css" %}" rel = "stylesheet">
-    </head>
-    <body>
-    {% if user.is_authenticated %}
-        <h1>Hello, {{user.username}}!</h1>
-        <div class = "navbar navbar-inverse navbar-static-top">
-            <div class = "container">
-                
-                <a href = "#" class = "navbar-brand">ToDoList</a>
-                
-                <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
-                    <span class = "icon-bar"></span>
-                    <span class = "icon-bar"></span>
-                    <span class = "icon-bar"></span>
-                </button>
-                
-                <div class = "collapse navbar-collapse navHeaderCollapse">
-                
-                    <ul class = "nav navbar-nav navbar-right">
- 
-                        <li class = "active"><a href = "/rct/">Home</a></li>
-                        <li><a href = "#"><span class="glyphicon glyphicon-cog"></span> </a></li>
-                        <li><a href="{% url 'create_project' %}">Add New Project</a></li>
-                        <li><a href="#">My Tasks</a></li>
                     
-                    </ul>
-                
-                </div>
-                
-            </div>
-        </div>
 
-        <div class="container">
+{% extends 'rct/base.html' %}
+
+{% block nav-register %}{% endblock %}
+
+{% block body_block %}
+
+    <div class="container">
         {% if projects %}
             {% for project in projects %}
             <div class="jumbotron">
@@ -48,13 +17,8 @@
             </div>
             {% endfor %}
         {% endif %}
-        </div>
-    {% endif %}
+    </div>
 
-        
-        
-</body>
-</html>
-        
+{% endblock %}
 
        
