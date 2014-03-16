@@ -7,6 +7,10 @@
 
 {% block body_block %}
 
+{% if user.is_anonymous %}
+    <meta http-equiv="refresh" content="0;url=/rct/login/">
+{% endif %}
+
     <div class="container">
         {% if projects %}
             {% for project in projects %}
