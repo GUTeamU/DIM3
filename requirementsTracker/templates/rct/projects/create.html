@@ -11,9 +11,6 @@
         <div id="header">
                 <h1> Add New Project </h1>
             </div>
-        {% if user.is_anonymous %}
-            <meta http-equiv="refresh" content="0;url=/rct/login/">
-        {% endif %}
 
         <br></br>
 
@@ -21,15 +18,13 @@
             <form id="category_form" method="post" action="{% url 'create_project' %}">
 
                 {% csrf_token %}
-                {% for hidden in form.hidden_fields %}
-                    {{ hidden }}
-                {% endfor %}
-                {% for field in form.visible_fields %}
-                    {{ field.errors }}
-                    {{ field.help_text}}
-                    {{ field }}
-                {% endfor %}
 
+                {% for field in form.visible_fields %}
+                    {{ field.errors }}<br>
+                    {{ field.help_text}}<br>
+                    {{ field }}<br>
+                {% endfor %}
+                <br></br>
                 <input type="submit" name="submit" value="Create Project" />
             </form>
         </div>
