@@ -39,6 +39,7 @@
                     {% endfor %}
                 </div>
                 <div class="modal-footer">
+                    <a href="{% url 'delete_project' project.url %}" class="pull-left btn btn-danger">Delete Project</a>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     <button type="submit" name="submit" class="btn btn-primary">Save</button>
                 </div>

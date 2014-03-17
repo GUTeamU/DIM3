@@ -16,9 +16,6 @@
                 <h1>{{ project.name }}</h1>
                 <p><i>{{ project.description }}</i></p>
                 <a href="{% url 'project' project.url %}" class ="btn btn-default">View Whiteboard</a>
-                <br></br>
-                <a href="{% url 'delete_project' project.url %}" class ="btn btn-default">Delete Project</a>
-
             </div>
             {% endfor %}
         {% else %}
