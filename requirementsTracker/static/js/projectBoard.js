@@ -1,6 +1,6 @@
 function mustHave() {
-	document.getElementById("whiteboard").style.borderColor = "#FF0000";
-	document.getElementById("boxes").style.backgroundColor = "#FF0000";
+	$("#whiteboard").css( "border-color", "#FF0000")
+	$("#must > #boxes").css("background-color", "#FF0000")
 
 	$("#should").hide()
 	$("#could").hide()
@@ -10,8 +10,8 @@ function mustHave() {
 };
 
 function shouldHave() {
-	document.getElementById("whiteboard").style.borderColor = "#FF8330";
-	document.getElementById("boxes").style.backgroundColor = "#FF8330";
+	$("#whiteboard").css( "border-color", "#FF8330")
+	$("#should > #boxes").css("background-color", "#FF8330")
 	
 	$("#must").hide()
 	$("#could").hide()
@@ -22,8 +22,9 @@ function shouldHave() {
 };
 
 function couldHave() {
-	document.getElementById("whiteboard").style.borderColor = "#19A319";
-	document.getElementById("boxes").style.backgroundColor = "#19A319";
+	$("#whiteboard").css( "border-color", "#19A319")
+	$("#could > #boxes").css("background-color", "#19A319")
+	
 
 	$("#must").hide()
 	$("#should").hide()
@@ -33,8 +34,8 @@ function couldHave() {
 };
 
 function wouldLike() {
-	document.getElementById("whiteboard").style.borderColor = "#1693BC";
-	document.getElementById("boxes").style.backgroundColor = "#1693BC";
+	$("#whiteboard").css( "border-color", "#1693BC")
+	$("#would > #boxes").css("background-color", "#1693BC")
 
 	$("#must").hide()
 	$("#should").hide()
