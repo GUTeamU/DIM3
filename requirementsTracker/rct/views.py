@@ -31,15 +31,15 @@ def user_login(request):
 	return render_to_response('rct/login.html',context)
 
 def index(request):
-	context = RequestContext(request)
+    context = RequestContext(request)
 
-        projects = Project.objects.all()
-        context_dict = {'projects' : projects}
-        
-        for p in projects:
-            p.url = p.name.replace(' ', '_').lower()
+    projects = Project.objects.all()
+    context_dict = {'projects' : projects}
 
-	return render_to_response('rct/index.html', context_dict, context)
+    for p in projects:
+        p.url = p.name.replace(' ', '_').lower()
+
+    return render_to_response('rct/index.html', context_dict, context)
 
 def create_project(request):
     context = RequestContext(request)
