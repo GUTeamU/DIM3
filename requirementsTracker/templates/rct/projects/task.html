@@ -1,0 +1,28 @@
+<div class= "boxes">
+    <button type="button" data-toggle="modal" data-target="#{{ task.id }}" class="btn btn-defaul-lg btn-block">{{ task.title }}</button>
+</div>
+
+<div class="modal fade" id="{{ task.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">{{ task.title }}</h4>
+            </div>
+            <div class="modal-body">
+            {% if task.completed %}
+                Completed</br>
+            {% else %}
+                To Be Completed</br>
+            {% endif %}
+                Deadline: {{task.deadline}}</br>
+                Description: {{task.description}}</br>
+                Priority: {{task.priority}}</br>
+                Category: {{task.category}} </br>   
+            </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+</div>
