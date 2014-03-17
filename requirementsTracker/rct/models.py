@@ -12,7 +12,7 @@ class UserProfile(models.Model):
 
 class Project(models.Model):
     name = models.CharField(max_length=255)
-    url = models.URLField()
+    url = models.CharField(max_length=255)
     description = models.TextField()
 
     def __unicode__(self):
