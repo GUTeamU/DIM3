@@ -41,7 +41,7 @@ class TaskForm(forms.ModelForm):
 	completed = forms.BooleanField(initial=False, required=False, help_text="Tick to indicate if task is completed")
 	deadline = forms.DateTimeField(widget=DateTimeWidget(usel10n = True, options=dateTimeOptions), help_text="Deadline, click to open widget")
 	description = forms.CharField(max_length=256,help_text= "Enter a description")
-	category = forms.ChoiceField(choices = CATEGORIES, widget=forms.RadioSelect())
+	category = forms.ChoiceField(choices = CATEGORIES, widget=forms.Select())
 
 	class Meta:
 		model = Task
