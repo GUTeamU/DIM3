@@ -2,8 +2,9 @@
 {% load static %}
 {% load ac %}
 
-{% block js %}
+{% block extra_scripts %}
 <script type="text/javascript" src="{% static "js/projectBoard.js" %}"></script>
+<script type="text/javascript" src="{% static "js/jquery-2.1.0.min.js" %}"></script>
 {% endblock %}
 
 {% block nav %}
@@ -57,38 +58,38 @@
         <button type="button" class="btn btn-primary btn-lg" id="would-like" onclick="wouldLike()">Would Like</button>
     </div>
 
-    <u1 id="must" >
+    <ul id="must" >
         {% if must %}
         {% for task in must %}
             {% include 'rct/projects/task.html' %}
         {% endfor %}
         {% endif %}
-    </u1>
+    </ul>
 
 
-    <u1 id="should" hidden>
+    <ul id="should" hidden>
         {% if should %}
         {% for task in should %}
             {% include 'rct/projects/task.html' %}
         {% endfor %}
         {% endif %}
-    </u1>
+    </ul>
 
-    <u1 id="could" hidden>
+    <ul id="could" hidden>
         {% if could %}
         {% for task in could %}
             {% include 'rct/projects/task.html' %}
         {% endfor %}
         {% endif %}
-    </u1>
+    </ul>
 
-    <u1 id="would" hidden>
+    <ul id="would" hidden>
         {% if would %}
         {% for task in would %}
             {% include 'rct/projects/task.html' %}
         {% endfor %}
         {% endif %}
-    </u1>
+    </ul>
 
 </div>
 
