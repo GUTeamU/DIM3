@@ -58,7 +58,7 @@ def create_project(request):
         form = ProjectForm(request.POST)
         if form.is_valid():
             project = form.save(commit=True)
-            project.url = project.name.replace(' ', '_')
+            project.url = project.name.replace(' ', '_').lower()
             user = User.objects.get(pk=request.user.id)
             project.members.add(user)
             project.save()
