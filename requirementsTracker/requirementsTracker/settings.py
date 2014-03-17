@@ -166,7 +166,7 @@ AUTHENTICATION_BACKENDS = (
     )
 
 #OPENID_CREATE_USERS = True
-LOGIN_URL             = '/login'
+LOGIN_URL             = '/rct/login/'
 LOGOUT_URL            = '/logout'
 LOGIN_REDIRECT_URL    = '/rct'
 LOGIN_ERROR_URL       = 'login-error'

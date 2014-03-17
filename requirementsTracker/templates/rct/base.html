@@ -19,6 +19,8 @@
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
         
     {{ form.media }}
+    
+    
     {% block extra_scripts %}{% endblock %}
 
 <link rel="shortcut icon" type="image/x-icon" href="{% static '/images/favicon.ico' %}">
@@ -91,9 +93,6 @@
         <div class="container">
         {%block body_block %}This is the default content of body-block{% endblock %}
         </div>
-
-
-       
 
     </body>
 </html>

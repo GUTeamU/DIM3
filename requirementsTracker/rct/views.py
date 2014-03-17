@@ -7,6 +7,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from rct.models import Project, Task
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+
 
 def user_login(request):
 	context = RequestContext(request)
@@ -30,6 +32,7 @@ def user_login(request):
 			return HttpResponse("Invalid login details")	
 	return render_to_response('rct/login.html',context)
 
+@login_required
 def index(request):
 	context = RequestContext(request)
 
@@ -41,6 +44,7 @@ def index(request):
 
 	return render_to_response('rct/index.html', context_dict, context)
 
+@login_required
 def create_project(request):
     context = RequestContext(request)
 
@@ -58,6 +62,7 @@ def create_project(request):
 
     return render_to_response('rct/projects/create.html', {'form':form}, context)
 
+@login_required
 def view_project(request, url):
     context = RequestContext(request)
     context_dict = {}
@@ -77,7 +82,7 @@ def view_project(request, url):
     
     return render_to_response('rct/projects/view.html', context_dict, context)
 
-
+@login_required
 def add_task(request, url):
 
 	context = RequestContext(request)
@@ -100,7 +105,7 @@ def add_task(request, url):
 	context_dict['form'] = form
 	return render_to_response('rct/tasks/create.html', context_dict, context)
 
-
+@login_required
 def projectBoard(request):
 	context = RequestContext(request)
 	return render_to_response('rct/projectBoard.html',context)
@@ -126,14 +131,17 @@ def signup(request):
 
 	return render_to_response('rct/signup.html',{'user_form': user_form , 'registered':registered},context)
 
+@login_required
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect('/rct/login')
 
+@login_required
 def delete_task(id):
 	toDelete = Task.objects.filter(id=id)
 	toDelete.delete()
 
+@login_required
 def delete_project(request,url):
 	proj_name = url.replace("_"," ")
 	to_delete = Project.objects.filter(name=proj_name)
