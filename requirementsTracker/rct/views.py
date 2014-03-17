@@ -82,7 +82,7 @@ def create_project(request):
             project.members.add(user)
             project.save()
 
-            return HttpResponseRedirect(reverse('rct.views.projectBoard'))
+            return HttpResponseRedirect(reverse('rct.views.index'))
 
     else:
         form = ProjectForm()
@@ -139,11 +139,6 @@ def add_task(request, url):
         form = TaskForm()
     context_dict['form'] = form
     return render_to_response('rct/tasks/create.html', context_dict, context)
-
-@login_required
-def projectBoard(request):
-	context = RequestContext(request)
-	return render_to_response('rct/projectBoard.html',context)
 	
 def signup(request):
 	context = RequestContext(request)

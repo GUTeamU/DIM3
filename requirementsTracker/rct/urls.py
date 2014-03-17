@@ -4,7 +4,6 @@ from rct import views
 urlpatterns = patterns('',
         url(r'^login/$', views.user_login, name='login'),
         url(r'^logout/$',views.user_logout, name='logout'),
-        url(r'^projectBoard/$', views.projectBoard, name='projectBoard'),
         url(r'^project/create/$', views.create_project, name='create_project'),
         url(r'^project/(?P<url>\w+)/$', views.view_project, name='project'),
         url(r'^project/(?P<url>\w+)/delete', views.delete_project, name='delete_project'),
