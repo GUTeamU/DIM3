@@ -12,15 +12,12 @@
 /* Index */
 /* ------------------------------------------------------ */
 
-div.container div.jumbotron {
-    text-align: center;
-}
-
-
 /* ------------------------------------------------------ */
 /* Login */
 /* ------------------------------------------------------ */
-
+.container{
+    text-align:center;
+}
  
 /* ------------------------------------------------------ */
 /* Signup */
@@ -69,16 +66,14 @@ div.container div.jumbotron {
 /* ------------------------------------------------------ */
 
 #whiteboard {
-	position:absolute
-	width:1000px;
-    margin:0px;
-    height:650px;
     background:#DB8484;
+    width:1000px;
+    height:650px;
     border-style:groove;
-    border-color:black;
-    border-radius:10px;
     text-align: center;
 }
+
+
 
 .blocks .btn-danger {
     padding: 18px 120px 18px 22px; 
@@ -108,4 +103,12 @@ div.container div.jumbotron {
     border-spacing:10px;
 }
 
+.boxes {
+    float:left;
+    border-style:solid;
+    border-color:white;
+    border-radius:10px;
+    padding-right:10px;
+    margin-right:10px;
+}
 
