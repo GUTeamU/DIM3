@@ -28,16 +28,12 @@
             <form id="task_form" method="post" action="/rct/project/{{ project.url }}/add_task/">
                 {% csrf_token %}
 
-                 {% for hidden in form.hidden_fields %}
-                    {{ hidden }}
-                {% endfor %}
-
                 {% for field in form.visible_fields %}
-                    {{ field.errors }}
-                    {{ field.help_text }}
-                    {{ field }}
+                    {{ field.errors }}<br></br>
+                    {{ field.help_text }}<br></br>
+                    {{ field }}<br></br>
                 {% endfor %}
-
+                <br></br>
                 <input type="submit" name="submit" values="Create task" />
             </form>
 
