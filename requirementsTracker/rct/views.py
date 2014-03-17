@@ -69,6 +69,7 @@ def view_project(request, url):
     
     try:
         for key in ('must', 'should', 'could', 'would'):
+<<<<<<< HEAD
             context_dict[key] = context_dict['project'].task_set.filter(priority=key[0].upper()).all()
     except Exception:
         # guess there are no tasks

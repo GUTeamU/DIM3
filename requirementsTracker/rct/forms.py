@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django import forms
 from datetimewidget.widgets import DateTimeWidget
 
-PRIORITIES=[('M', 'Must Have'),('S', 'Should Have'),('C', 'Could Have'),('W', 'Would Like')]
+CATEGORIES=[('M', 'Must Have'),('S', 'Should Have'),('C', 'Could Have'),('W', 'Would Like')]
 
 class UserForm(forms.ModelForm):
 	password = forms.CharField(widget=forms.PasswordInput())
@@ -26,8 +26,8 @@ class TaskForm(forms.ModelForm):
 	completed = forms.BooleanField(initial=False, required=False, help_text="Tick to indicate if task is completed")
 	deadline = forms.DateTimeField(widget=DateTimeWidget(usel10n = True), help_text="Deadline, click to open widget")
 	description = forms.CharField(max_length=256,help_text= "Enter a description")
-	priority = forms.ChoiceField(choices = PRIORITIES, widget=forms.RadioSelect())
-	category = forms.CharField(max_length=32, help_text= "Enter the type of task")
+	priority = forms.IntegerField(min_value=1, max_value=5, help_text= "Enter the priority of the task (1 highest priority, 5 lowest priority")
+	category = forms.ChoiceField(choices = CATEGORIES, widget=forms.RadioSelect())
 	class Meta:
 		model = Task
 		fields = ('title', 'completed', 'deadline', 'description', 'priority', 'category')
