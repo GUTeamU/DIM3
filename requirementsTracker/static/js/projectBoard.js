@@ -1,5 +1,3 @@
-$(document).ready(mustHave);
-
 function mustHave() {
 	var elem = document.getElementById("whiteboard");
 	elem.style.background = "#DB8484";
