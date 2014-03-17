@@ -48,13 +48,11 @@ def index(request):
     for p in Project.objects.all():
         if is_member(p, request.user.id):
             projects.append(p)
-            break
-
-    context_dict = {'projects' : projects}
 
     for p in projects:
         p.url = p.name.replace(' ', '_').lower()
 
+    context_dict = {'projects' : projects}
     return render_to_response('rct/index.html', context_dict, context)
 
 def edit_project(request, url):
