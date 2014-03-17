@@ -65,7 +65,7 @@ def view_project(request, url):
     try:
         context_dict['project'] = Project.objects.get(url__iexact=url)
     except Project.DoesNotExist:
-        return HttpResponseNotFound('<h1>Page not found</h1>')
+        return HttpResponseNotFound('<h1>Project not found</h1>')
     
     try:
         for key in ('must', 'should', 'could', 'would'):
