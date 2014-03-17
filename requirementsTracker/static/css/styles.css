@@ -83,6 +83,17 @@
     overflow: hidden;
 }
 
+#boxes {
+    float:left;
+    border-style:solid;
+    border-color:white;
+    border-radius:10px;
+    padding-right:10px;
+    margin-right:10px;
+    background-color:transparent;
+    display:visible;
+}
+
 .blocks .btn-danger {
     padding: 18px 120px 18px 22px; 
     border-radius: 0 auto;
@@ -111,12 +122,6 @@
     border-spacing:10px;
 }
 
-.boxes {
-    float:left;
-    border-style:solid;
-    border-color:white;
-    border-radius:10px;
-    padding-right:10px;
-    margin-right:10px;
+#butt {
+    background-color:white;
 }
-
