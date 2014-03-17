@@ -1,4 +1,4 @@
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 from django.core.urlresolvers import reverse
 from django.template import RequestContext
 from django.shortcuts import render_to_response
@@ -65,13 +65,12 @@ def view_project(request, url):
     try:
         context_dict['project'] = Project.objects.get(url__iexact=url)
     except Project.DoesNotExist:
-        # TODO redirect to 404
-        pass
+        return HttpResponseNotFound('<h1>Page not found</h1>')
     
     try:
         for key in ('must', 'should', 'could', 'would'):
             context_dict[key] = context_dict['project'].task_set.filter(priority=key[0].upper()).all()
-    except Project.DoesNotExist:
+    except Exception:
         # guess there are no tasks
         pass    
     
