@@ -14,6 +14,7 @@ class Project(models.Model):
     name = models.CharField(max_length=255, unique=True)
     url = models.CharField(max_length=255)
     description = models.TextField()
+    members = models.ManyToManyField(User) # leave as blank=False to force at least one member
 
     def __unicode__(self):
         return self.name

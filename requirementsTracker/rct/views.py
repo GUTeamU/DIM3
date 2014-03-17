@@ -2,7 +2,7 @@ from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 from django.core.urlresolvers import reverse
 from django.template import RequestContext
 from django.shortcuts import render_to_response
-from rct.forms import UserForm, ProjectForm, TaskForm
+from rct.forms import UserForm, ProjectForm, TaskForm, EditProjectForm
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from rct.models import Project, Task
@@ -41,6 +41,16 @@ def index(request):
 
     return render_to_response('rct/index.html', context_dict, context)
 
+def edit_project(request, url):
+    context = RequestContext(request)
+
+    if request.method == 'POST':
+        form = EditProjectForm(request.POST, instance=Project.objects.get(url=url))
+        if form.is_valid():
+                project = form.save()
+
+    return HttpResponseRedirect(reverse('rct.views.view_project', args=(url,)))
+
 def create_project(request):
     context = RequestContext(request)
 
@@ -49,6 +59,8 @@ def create_project(request):
         if form.is_valid():
             project = form.save(commit=True)
             project.url = project.name.replace(' ', '_')
+            user = User.objects.get(pk=request.user.id)
+            project.members.add(user)
             project.save()
 
             return HttpResponseRedirect(reverse('rct.views.index'))
@@ -63,7 +75,9 @@ def view_project(request, url):
     context_dict = {}
 
     try:
-        context_dict['project'] = Project.objects.get(url__iexact=url)
+        project = Project.objects.get(url__iexact=url)
+        context_dict['project'] = project
+        context_dict['form']  = EditProjectForm(instance=project)
     except Project.DoesNotExist:
         return HttpResponseNotFound('<h1>Project not found</h1>')
     
@@ -98,7 +112,6 @@ def add_task(request, url):
 		form = TaskForm()
 	context_dict['form'] = form
 	return render_to_response('rct/tasks/create.html', context_dict, context)
-
 
 def projectBoard(request):
 	context = RequestContext(request)

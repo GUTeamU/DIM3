@@ -1,21 +1,14 @@
 {% extends 'rct/base.html' %}
 {% load static %}
 
-{% if user.is_anonymous %}
-    <meta http-equiv="refresh" content="0;url=/rct/login/">
-{% endif %}
+{% block nav %}
+{% include "rct/projects/nav.html" %}
+<li><a href = "{% url 'project' project.url %}">Back to Project</a></li>
+{% endblock %}
    
 <script type="text/javascript" src="{% static 'js/signup.js' %}"></script>
 
 <title>Requirements Tracker</title>
-
-
-{% block nav-add %}{% endblock %}
-{% block nav-tasks %}{% endblock %}
-{% block nav-addMemb %}{% endblock %}
-{% block nav-addTask %}{% endblock %}
-{% block nav-addProj %}{% endblock %}
-
 
 {% block body_block %}
 
@@ -25,7 +18,7 @@
         
         <div id = "mycontainer">
     
-            <form id="task_form" method="post" action="/rct/project/{{ project.url }}/add_task/">
+            <form id="task_form" method="post" action="{% url 'add_task' project.url %}">
                 {% csrf_token %}
 
                  {% for hidden in form.hidden_fields %}
@@ -38,7 +31,7 @@
                     {{ field }}
                 {% endfor %}
 
-                <input type="submit" name="submit" values="Create task" />
+                <input type="submit" name="submit" value="Create task" />
             </form>
 
         </div>

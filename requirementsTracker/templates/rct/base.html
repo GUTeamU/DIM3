@@ -48,36 +48,19 @@
                     <ul class = "nav navbar-nav navbar-right">
 
                         {% if user.is_authenticated %}
-                        <li><a href="/rct/logout/"><i class="fa fa-sign-out"></i>  Sign out</a></li>
+                        <li><a href="{% url 'logout' %}"><i class="fa fa-sign-out"></i>  Sign out</a></li>
 
                         {% else %}
-                        <li><a href="/rct/login/"><i class="fa fa-sign-in"></i>  Sign in</a></li>
+                        <li><a href="{% url 'login' %}"><i class="fa fa-sign-in"></i>  Sign in</a></li>
 
                         {% block register %}
-                        <li><a href="/rct/signup/">Register</a></li>
+                        <li><a href="{% url 'signup' %}">Register</a></li>
                         {% endblock %}
                         {% endif %}
 
-                        <li class = "active"><a href = "/rct/">Home</a></li>
+                        <li><a href = "/rct/">Home</a></li>
                         
-                        <li><a href = "#"><span class="glyphicon glyphicon-cog"></span> </a></li>
-                                            
-                        {% block nav-addProj %}
-                        <li><a href="{% url 'create_project' %}">Add New Project</a></li>
-                        {% endblock %}
-
-                        {% block nav-addTask %}
-                        <li><a href = "/rct/project/{{ project.url }}/add_task/">Add New Task</a></li>
-                        {% endblock %}
-
-                        {% block nav-addMemb %}
-                        <li><a href = "#">Add New Member</a></li>
-                        {% endblock %}
-
-                        {% block nav-tasks %}
-                        <li><a href="#">My Tasks</a></li>
-                        {% endblock %}
-
+                        {% block nav %}{% endblock %}
 
                     </ul>
                 
@@ -91,7 +74,6 @@
         <div class="container">
         {%block body_block %}This is the default content of body-block{% endblock %}
         </div>
-       
-
+        {% block js %}{% endblock %}
     </body>
 </html>

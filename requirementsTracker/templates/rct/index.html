@@ -1,8 +1,8 @@
 {% extends 'rct/base.html' %}
 
-{% block nav-register %}{% endblock %}
-{% block nav-addMemb %}{% endblock %}
-{% block nav-addTask %}{% endblock %}
+{% block nav %}
+<li><a href="{% url 'create_project' %}">Add New Project</a></li>
+{% endblock %}
 
 {% block body_block %}
 
@@ -17,7 +17,7 @@
                 <p><i>{{ project.description }}</i></p>
                 <a href="{% url 'project' project.url %}" class ="btn btn-default">View Whiteboard</a>
                 <br></br>
-                <a href='/rct/project/{{project.name}}/delete/' class ="btn btn-default">Delete Project</a>
+                <a href="{% url 'delete_project' project.url %}" class ="btn btn-default">Delete Project</a>
 
             </div>
             {% endfor %}
