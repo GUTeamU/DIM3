@@ -70,7 +70,7 @@ def view_project(request, url):
     
     try:
         for key in ('must', 'should', 'could', 'would'):
-            context_dict[key] = project.task_set.filter(priority=key[0].upper()).all()
+            context_dict[key] = context_dict['project'].task_set.filter(priority=key[0].upper()).all()
     except Project.DoesNotExist:
         # guess there are no tasks
         pass    
