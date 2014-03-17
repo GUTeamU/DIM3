@@ -25,10 +25,9 @@ class Task(models.Model):
     completed = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
-    deadline = models.DateTimeField()
+    deadline = models.DateField()
     description = models.TextField()
     project = models.ForeignKey(Project)
-    priority = models.IntegerField(max_length=1)
     category = models.TextField(max_length=16)
 
     def __unicode__(self):

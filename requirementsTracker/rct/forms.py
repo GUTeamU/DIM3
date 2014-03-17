@@ -6,6 +6,11 @@ from datetimewidget.widgets import DateTimeWidget
 
 CATEGORIES=[('M', 'Must Have'),('S', 'Should Have'),('C', 'Could Have'),('W', 'Would Like')]
 
+dateTimeOptions = {
+'format': 'dd/mm/yyyy',
+'minView': '2',
+'todayHighlight': 'true'
+}
 
 class UserForm(forms.ModelForm):
 	password = forms.CharField(widget=forms.PasswordInput())
@@ -34,11 +39,10 @@ class EditProjectForm(forms.ModelForm):
 class TaskForm(forms.ModelForm):
 	title = forms.CharField(max_length=32,help_text= "Enter a title")
 	completed = forms.BooleanField(initial=False, required=False, help_text="Tick to indicate if task is completed")
-	deadline = forms.DateTimeField(widget=DateTimeWidget(usel10n = True), help_text="Deadline, click to open widget")
+	deadline = forms.DateTimeField(widget=DateTimeWidget(usel10n = True, options=dateTimeOptions), help_text="Deadline, click to open widget")
 	description = forms.CharField(max_length=256,help_text= "Enter a description")
-	priority = forms.IntegerField(min_value=1, max_value=5, help_text= "Enter the priority of the task (1 highest priority, 5 lowest priority")
 	category = forms.ChoiceField(choices = CATEGORIES, widget=forms.RadioSelect())
 
 	class Meta:
 		model = Task
-		fields = ('title', 'completed', 'deadline', 'description', 'priority', 'category')
+		fields = ('title', 'completed', 'deadline', 'description', 'category')
