@@ -1,40 +1,23 @@
-<!DOCTYPE html>
-<html>
+{% extends 'rct/base.html' %}
+{% load static %}
 
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href = "../../static/css/bootstrap.min.css" rel = "stylesheet">
-        <link href = "../../static/css/styles.css" rel = "stylesheet">
-        <script type="text/javascript" src="../../static/js/signup.js"></script>
-        <title>Requirements Tracker</title>
-    </head>
+{% if user.is_anonymous %}
+    <meta http-equiv="refresh" content="0;url=/rct/login/">
+{% endif %}
+   
+<script type="text/javascript" src="{% static 'js/signup.js' %}"></script>
 
-    <body>
+<title>Requirements Tracker</title>
 
-        <div class = "navbar navbar-inverse navbar-static-top">
-            <div class = "container">
-                
-                <a href = "#" class = "navbar-brand">ToDoList</a>
-                
-                <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
-                    <span class = "icon-bar"></span>
-                    <span class = "icon-bar"></span>
-                    <span class = "icon-bar"></span>
-                </button>
-                
-                <div class = "collapse navbar-collapse navHeaderCollapse">
-                
-                    <ul class = "nav navbar-nav navbar-right">
 
-                        <li class = "active"><a href = "/rct/">Home</a></li>
-                        <li><a href = "#"><span class="glyphicon glyphicon-cog"></span> </a></li>
-                    
-                    </ul>
-                
-                </div>
-                
-            </div>
-        </div>
+{% block nav-add %}{% endblock %}
+{% block nav-tasks %}{% endblock %}
+{% block nav-addMemb %}{% endblock %}
+{% block nav-addTask %}{% endblock %}
+{% block nav-addProj %}{% endblock %}
+
+
+{% block body_block %}
 
 
         <div id="header">
@@ -78,6 +61,4 @@
             <a href="/rct/">Return to index.</a><br/>
         {% endif %}
 
-    </body>
-
-</html>
+{% endblock %}
