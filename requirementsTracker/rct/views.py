@@ -69,12 +69,10 @@ def view_project(request, url):
         pass
     
     try:
-        context_dict['must'] = Task.objects.filter(project=context_dict['project'], priority="M")
-        context_dict['should'] = Task.objects.filter(project=context_dict['project'], priority="S")
-        context_dict['could'] = Task.objects.filter(project=context_dict['project'], priority="C")
-        context_dict['would'] = Task.objects.filter(project=context_dict['project'], priority="W")
+        for key in ('must', 'should', 'could', 'would'):
+            context_dict[key] = project.task_set.filter(priority=key[0].upper()).all()
     except Project.DoesNotExist:
-        # TODO redirect to 404
+        # guess there are no tasks
         pass    
     
     return render_to_response('rct/projects/view.html', context_dict, context)
