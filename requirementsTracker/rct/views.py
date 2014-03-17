@@ -143,11 +143,9 @@ def user_logout(request):
     return HttpResponseRedirect('/rct/login')
 
 def delete_task(id):
-	toDelete = Task.objects.filter(id=id)
-	toDelete.delete()
+    toDelete = Task.objects.filter(id=id)
+    toDelete.delete()
 
 def delete_project(request,url):
-	proj_name = url.replace("_"," ")
-	to_delete = Project.objects.filter(name=proj_name)
-	to_delete.delete()
-	return HttpResponseRedirect('/rct/')
+    Project.objects.filter(url=url).delete()
+    return HttpResponseRedirect('/rct/')
