@@ -52,7 +52,11 @@
                                 <h4 class="modal-title">{{ task.title }}</h4>
                             </div>
                             <div class="modal-body">
-                                {{task.completed}}</br>
+                            {% if task.completed %}
+                                Completed</br>
+                            {% else %}
+                                To Be Completed</br>
+                            {% endif %}
                                 Deadline: {{task.deadline}}</br>
                                 Description: {{task.description}}</br>
                                 Priority: {{task.priority}}</br>
@@ -84,7 +88,11 @@
                                 <h4 class="modal-title">{{ task.title }}</h4>
                             </div>
                             <div class="modal-body">
-                                {{task.completed}}</br>
+                            {% if task.completed %}
+                                Completed</br>
+                            {% else %}
+                                To Be Completed</br>
+                            {% endif %}
                                 Deadline: {{task.deadline}}</br>
                                 Description: {{task.description}}</br>
                                 Priority: {{task.priority}}</br>
@@ -114,7 +122,11 @@
                                 <h4 class="modal-title">{{ task.title }}</h4>
                             </div>
                             <div class="modal-body">
-                                {{task.completed}}</br>
+                            {% if task.completed %}
+                                Completed</br>
+                            {% else %}
+                                To Be Completed</br>
+                            {% endif %}
                                 Deadline: {{task.deadline}}</br>
                                 Description: {{task.description}}</br>
                                 Priority: {{task.priority}}</br>
@@ -144,7 +156,11 @@
                                 <h4 class="modal-title">{{ task.title }}</h4>
                             </div>
                             <div class="modal-body">
-                                {{task.completed}}</br>
+                            {% if task.completed %}
+                                Completed</br>
+                            {% else %}
+                                To Be Completed</br>
+                            {% endif %}
                                 Deadline: {{task.deadline}}</br>
                                 Description: {{task.description}}</br>
                                 Priority: {{task.priority}}</br>
