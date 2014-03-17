@@ -82,7 +82,7 @@ def create_project(request):
             project.members.add(user)
             project.save()
 
-            return HttpResponseRedirect(reverse('rct.views.index'))
+            return HttpResponseRedirect(reverse('rct.views.projectBoard'))
 
     else:
         form = ProjectForm()
