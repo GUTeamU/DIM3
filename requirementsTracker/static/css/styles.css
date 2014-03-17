@@ -73,13 +73,13 @@
 
 #whiteboard {
     background:#DB8484;
-    width:1000px;
-    height:650px;
+    width: 100%;
+    min-height:650px;
     border-style:groove;
+    border-radius: 100px;
     text-align: center;
+    overflow: hidden;
 }
-
-
 
 .blocks .btn-danger {
     padding: 18px 120px 18px 22px; 
