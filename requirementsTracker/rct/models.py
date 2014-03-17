@@ -31,7 +31,7 @@ class Task(models.Model):
     deadline = models.DateTimeField()
     description = models.TextField()
     project = models.ForeignKey(Project)
-    priority = models.TextField(max_length=1)
+    priority = models.IntegerField(max_length=1)
     category = models.TextField(max_length=16)
 
     def __unicode__(self):
