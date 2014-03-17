@@ -15,7 +15,7 @@
             <div class="jumbotron">
                 <h1>{{ project.name }}</h1>
                 <p><i>{{ project.description }}</i></p>
-                <a href="{% url 'project' project.url %}" class ="btn btn-default">View Whiteboard</a>
+                <a href="project/{{project.url}}/" class ="btn btn-default">View Whiteboard</a>
             </div>
             {% endfor %}
         {% else %}
