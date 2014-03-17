@@ -90,8 +90,20 @@
     border-radius:10px;
     padding-right:10px;
     margin-right:10px;
-    background-color:#FF0000;
     display:visible;
+}
+
+#must #boxes{
+    background-color: #FF0000;
+}
+#should #boxes{
+    background-color: #FF8330;
+}
+#could #boxes{
+    background-color: #19A319;
+}
+#would #boxes{
+    background-color: #1693BC;
 }
 
 .blocks .btn-danger {
