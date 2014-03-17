@@ -1,6 +1,6 @@
 function mustHave() {
 	var elem = document.getElementById("whiteboard");
-	elem.style.background = "#DB8484";
+	elem.style.borderColor = "#FF0000";
 	$("#should").hide()
 	$("#could").hide()
 	$("#would").hide()
@@ -9,7 +9,7 @@ function mustHave() {
 
 function shouldHave() {
 	var elem = document.getElementById("whiteboard");
-	elem.style.background = "#EBC17A";
+	elem.style.borderColor = "#FF8330";
 	$("#must").hide()
 	$("#could").hide()
 	$("#would").hide()
@@ -18,7 +18,7 @@ function shouldHave() {
 
 function couldHave() {
 	var elem = document.getElementById("whiteboard");
-	elem.style.background = "#C0E099";
+	elem.style.borderColor = "#19A319";
 	$("#must").hide()
 	$("#should").hide()
 	$("#would").hide()
@@ -27,7 +27,7 @@ function couldHave() {
 
 function wouldLike() {
 	var elem = document.getElementById("whiteboard");
-	elem.style.background = "#AACFE3";
+	elem.style.borderColor = "#1693BC";
 	$("#must").hide()
 	$("#should").hide()
 	$("#could").hide()

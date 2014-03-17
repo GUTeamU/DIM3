@@ -72,11 +72,13 @@
 /* ------------------------------------------------------ */
 
 #whiteboard {
-    background:#DB8484;
+    background:#E0E0E0;
     width: 100%;
     min-height:650px;
-    border-style:groove;
+    border-color: #FF0000;
+    border-width: 3px;
     border-radius: 100px;
+    border-style:groove;
     text-align: center;
     overflow: hidden;
 }
