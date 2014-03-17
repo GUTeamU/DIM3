@@ -26,7 +26,7 @@ class TaskForm(forms.ModelForm):
 	completed = forms.BooleanField(initial=False, required=False, help_text="Tick to indicate if task is completed")
 	deadline = forms.DateTimeField(widget=DateTimeWidget(usel10n = True), help_text="Deadline, click to open widget")
 	description = forms.CharField(max_length=256,help_text= "Enter a description")
-	priority = forms.IntegerField(max_value=5, help_text= "Enter the priority of the task (1 highest priority, 5 lowest priority")
+	priority = forms.IntegerField(min_value=1, max_value=5, help_text= "Enter the priority of the task (1 highest priority, 5 lowest priority")
 	category = forms.ChoiceField(choices = CATEGORIES, widget=forms.RadioSelect())
 	class Meta:
 		model = Task
