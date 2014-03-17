@@ -10,7 +10,7 @@ urlpatterns = patterns('',
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^rct/', include('rct.urls')),
-    url('', RedirectView.as_view(url='rct/', permanent=False)),
+    url('', include('social_auth.urls')),
     url(r'', include('social_auth.urls')),
 
     # url(r'^$', 'requirementsTracker.views.home', name='home'),
