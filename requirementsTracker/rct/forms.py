@@ -37,7 +37,7 @@ class EditProjectForm(forms.ModelForm):
 
 
 class TaskForm(forms.ModelForm):
-	title = forms.CharField(max_length=32,help_text= "Enter a title")
+	title = forms.CharField(max_length=256,help_text= "Enter a title")
 	completed = forms.BooleanField(initial=False, required=False, help_text="Tick to indicate if task is completed")
 	deadline = forms.DateTimeField(widget=DateTimeWidget(usel10n = True, options=dateTimeOptions), help_text="Deadline, click to open widget")
 	description = forms.CharField(max_length=256,help_text= "Enter a description")
