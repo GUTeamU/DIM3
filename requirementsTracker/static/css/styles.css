@@ -75,7 +75,7 @@
     background:#E0E0E0;
     width: 100%;
     min-height:650px;
-    border-color: #d9edf7;
+    border-color: #000000;
     border-width: 3px;
     border-radius: 100px;
     border-style:groove;
@@ -137,10 +137,12 @@
     text-align: center;
 }
 
-.blocks .btn-info {
+.blocks .btn-default {
     padding: 18px 120px 18px 22px; 
     border-radius: 0 auto;
     text-align: center;
+    /*border-color: black;*/
+    background-color: white;
 } 
  
 
