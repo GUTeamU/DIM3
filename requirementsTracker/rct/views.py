@@ -177,7 +177,12 @@ def delete_project(request, url):
     project = Project.objects.get(url=url)
     if not is_member(project, request.user.id):
         return HttpResponse("Access denied")
-
+    
+    tasks = Task.objects.filter(project=project)
+    for task in tasks:
+        print task
+        task.delete()
+    
     Project.objects.filter(url=url).delete()
     return HttpResponseRedirect('/rct/')
  
