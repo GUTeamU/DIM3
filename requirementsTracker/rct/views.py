@@ -172,7 +172,7 @@ def delete_task(id):
     toDelete.delete()
 
 @login_required
-def delete_project(request,url):
+def delete_project(request, url):
 
     project = Project.objects.get(url=url)
     if not is_member(project, request.user.id):

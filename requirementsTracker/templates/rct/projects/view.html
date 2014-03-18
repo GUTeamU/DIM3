@@ -51,45 +51,47 @@
 <div class = "container" id = "whiteboard">                
 
     <div class="btn-group input-group btn-group-justified blocks" data-toggle="buttons">
+        <button type="button" class="btn btn-info btn-lg" id="all" onclick="show_all()">Must Have</button>
         <button type="button" class="btn btn-danger btn-lg" id="must-have" onclick="mustHave()">Must Have</button>
         <button type="button" class="btn btn-warning btn-lg" id="should-have" onclick="shouldHave()">Should Have</button>
         <button type="button" class="btn btn-success btn-lg" id="could-have" onclick="couldHave()">Could Have</button>
         <button type="button" class="btn btn-primary btn-lg" id="would-like" onclick="wouldLike()">Would Like</button>
     </div>
+    
+    <div>
+        <ul id="must" >
+            {% if must %}
+            {% for task in must %}
+                {% include 'rct/projects/task.html' %}
+            {% endfor %}
+            {% endif %}
+        </ul>
 
-    <ul id="must" >
-        {% if must %}
-        {% for task in must %}
-            {% include 'rct/projects/task.html' %}
-        {% endfor %}
-        {% endif %}
-    </ul>
 
+        <ul id="should" hidden>
+            {% if should %}
+            {% for task in should %}
+                {% include 'rct/projects/task.html' %}
+            {% endfor %}
+            {% endif %}
+        </ul>
 
-    <ul id="should" hidden>
-        {% if should %}
-        {% for task in should %}
-            {% include 'rct/projects/task.html' %}
-        {% endfor %}
-        {% endif %}
-    </ul>
+        <ul id="could" hidden>
+            {% if could %}
+            {% for task in could %}
+                {% include 'rct/projects/task.html' %}
+            {% endfor %}
+            {% endif %}
+        </ul>
 
-    <ul id="could" hidden>
-        {% if could %}
-        {% for task in could %}
-            {% include 'rct/projects/task.html' %}
-        {% endfor %}
-        {% endif %}
-    </ul>
-
-    <ul id="would" hidden>
-        {% if would %}
-        {% for task in would %}
-            {% include 'rct/projects/task.html' %}
-        {% endfor %}
-        {% endif %}
-    </ul>
-
+        <ul id="would" hidden>
+            {% if would %}
+            {% for task in would %}
+                {% include 'rct/projects/task.html' %}
+            {% endfor %}
+            {% endif %}
+        </ul>
+    </div>
 </div>
 
 {% endblock %}

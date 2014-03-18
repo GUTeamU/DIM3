@@ -1,3 +1,12 @@
+function show_all() {
+	$("#whiteboard").css( "border-color", "#FFFFFF");
+
+	$("#must").show();
+	$("#should").show();
+	$("#could").show();
+	$("#would").show();
+	
+};
 
 function mustHave() {
 	$("#whiteboard").css( "border-color", "#FF0000")

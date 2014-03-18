@@ -91,6 +91,8 @@
     padding-right:10px;
     margin:10px;
     display:visible;
+    
+    
 }
 
 #must #boxes{
@@ -122,7 +124,14 @@
     padding: 18px 120px 18px 22px; 
     border-radius: 0 auto;
     text-align: center;
+}
+
+.blocks .btn-info {
+    padding: 18px 120px 18px 22px; 
+    border-radius: 0 auto;
+    text-align: center;
 } 
+ 
 
 .blocks .btn-primary {
     padding: 18px 120px 18px 22px; 
