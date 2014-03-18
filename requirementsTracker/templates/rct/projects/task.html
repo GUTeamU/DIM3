@@ -1,5 +1,12 @@
 <div class="boxes" id="boxes">
-    <button type="button" id="butt" data-toggle="modal" data-target="#{{ task.id }}" class="btn btn-default-lg btn-block">{{ task.title }}</button>
+    <div class="buttonColor">
+        <label>
+            <input {% if task.completed %}checked{% else %}{% endif %} type="checkbox" onclick='updateTask(this, {{ task.id }}, "{{project.id}}");' >
+        </label>
+        <label>
+            <button type="button" id="butt" data-toggle="modal" data-target="#{{ task.id }}" class="btn btn-default-lg btn-block">{{ task.title }}</button>
+        </label>
+    </div>
 </div>
 
 <div class="modal fade" id="{{ task.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

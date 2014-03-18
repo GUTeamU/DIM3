@@ -9,6 +9,7 @@ urlpatterns = patterns('',
         url(r'^project/(?P<url>\w+)/delete', views.delete_project, name='delete_project'),
         url(r'^project/(?P<url>\w+)/edit', views.edit_project, name='edit_project'),
         url(r'^project/(?P<url>\w+)/task/add$', views.add_task, name='add_task'),
+        url(r'^ajax/task/update$', views.update_task, name='update_task'),
         url(r'^signup/$', views.signup, name='signup'),
 	url(r'^$', views.index, name='index'),
 

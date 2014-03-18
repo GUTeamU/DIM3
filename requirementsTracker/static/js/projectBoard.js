@@ -49,3 +49,14 @@ function wouldLike() {
 
 };
 
+function updateTask(cb, taskID, projectID){
+	$.ajax({
+        url: '/rct/ajax/task/update',
+        data: {project_id: projectID,task_id: taskID, task_status: cb.checked},
+        type: 'GET',
+        async: false,
+        success: function(data) {
+            console.log(data);
+        } 
+    });
+}

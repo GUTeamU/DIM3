@@ -108,6 +108,17 @@
     background-color: #1693BC;
 }
 
+.buttonColor{
+    background-image: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+    background-image: linear-gradient(to bottom, #ffffff 0%, #ffffff 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe0e0e0', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+    background-repeat: repeat-x;
+    border-color: #dbdbdb;
+    text-shadow: 0 1px 0 #fff;
+    border-color: #ccc;
+}
+
 .blocks .btn-danger {
     padding: 18px 120px 18px 22px; 
     border-radius: 0 auto;
