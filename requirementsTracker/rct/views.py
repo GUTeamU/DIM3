@@ -209,3 +209,28 @@ def update_task_completed(request):
     task.completed = (task_status=="true")
     task.save()
     return HttpResponse("Successfully updated")
+
+@login_required
+def edit_task(request, projectURL, task_id):
+
+    context = RequestContext(request)
+    context_dict = {}
+    try:
+        project = Project.objects.get(url=projectURL)
+        if not is_member(project, request.user.id):
+            return HttpResponse("Access denied")
+
+        context_dict['project'] = project
+    except Project.DoesNotExist:
+        pass
+        
+    task = Task.objects.get(id=task_id)
+    if request.method == 'POST':
+        form = TaskForm(request.POST, instance=task)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('rct.views.index') + "project/" + projectURL)
+    form = TaskForm()
+    context_dict['task'] = task
+    context_dict['form'] = form
+    return render_to_response('rct/tasks/edit.html', context_dict, context)
