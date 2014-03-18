@@ -187,7 +187,7 @@ def delete_project(request, url):
     return HttpResponseRedirect('/rct/')
  
 @login_required
-def update_task(request):
+def update_task_completed(request):
     context = RequestContext(request)
     
     project_id = None
@@ -204,22 +204,8 @@ def update_task(request):
     project = Project.objects.get(id=project_id)
     if not is_member(project, request.user.id):
         return HttpResponse("Access denied")
-    
-    print "Task"
-    print task_id
-    print "Task status"
-    print task_status.title()
 
     task = Task.objects.get(id=task_id)
-    print "task 2"
-    print task
-    print "task completed"
-    print task.completed
     task.completed = (task_status=="true")
-    print "task completed after"
-    print task.completed
-    # task.completed.save()
     task.save()
-    print "task completed after save"
-    print task.completed
     return HttpResponse("Successfully updated")
