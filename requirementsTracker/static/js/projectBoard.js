@@ -1,5 +1,5 @@
 function show_all() {
-	$("#whiteboard").css( "border-color", "#FFFFFF");
+	$("#whiteboard").css( "border-color", "#d9edf7");
 
 	$("#must").show();
 	$("#should").show();
