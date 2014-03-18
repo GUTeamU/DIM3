@@ -46,3 +46,6 @@ class TaskForm(forms.ModelForm):
 	class Meta:
 		model = Task
 		fields = ('title', 'completed', 'deadline', 'description', 'category')
+
+class EditTaskForm(TaskForm):
+    deadline = forms.CharField(max_length=254) # workaround for the datetime widget breaking the edit form

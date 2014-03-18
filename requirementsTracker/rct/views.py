@@ -2,7 +2,7 @@ from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 from django.core.urlresolvers import reverse
 from django.template import RequestContext
 from django.shortcuts import render_to_response
-from rct.forms import UserForm, ProjectForm, TaskForm, EditProjectForm
+from rct.forms import UserForm, ProjectForm, TaskForm, EditProjectForm,EditTaskForm
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from rct.models import Project, Task
@@ -226,11 +226,11 @@ def edit_task(request, projectURL, task_id):
         
     task = Task.objects.get(id=task_id)
     if request.method == 'POST':
-        form = TaskForm(request.POST, instance=task)
+        form = EditTaskForm(request.POST, instance=task)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('rct.views.index') + "project/" + projectURL)
-    form = TaskForm()
+    form = EditTaskForm(instance=task)
     context_dict['task'] = task
     context_dict['form'] = form
     return render_to_response('rct/tasks/edit.html', context_dict, context)
