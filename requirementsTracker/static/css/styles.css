@@ -48,12 +48,6 @@
 	font-size:20px;
 }
 
-#buttons {
-	margin:0 auto;
-    padding:0;
-
-}
-
 #register{
     position: relative;
     left:45%;
@@ -119,36 +113,13 @@
     border-color: #ccc;
 }
 
-.blocks .btn-danger {
-    padding: 18px 120px 18px 22px; 
+.category-button {
+    width: 144px !important;
+    height: 63px;
     border-radius: 0 auto;
     text-align: center;
-} 
-
-.blocks .btn-warning {
-    padding: 18px 126px 18px 16px; 
-    border-radius: 0 auto;
-    text-align: center;
-} 
-
-.blocks .btn-success {
-    padding: 18px 120px 18px 22px; 
-    border-radius: 0 auto;
-    text-align: center;
+    padding:0;
 }
-
-.blocks .btn-info {
-    padding: 18px 120px 18px 22px; 
-    border-radius: 0 auto;
-    text-align: center;
-} 
- 
-
-.blocks .btn-primary {
-    padding: 18px 120px 18px 22px; 
-    border-radius: 0 auto;
-    text-align: center;
-} 
 
 .blocks {
     border-spacing:10px;
