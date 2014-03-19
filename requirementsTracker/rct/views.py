@@ -50,7 +50,7 @@ def index(request):
             projects.append(p)
 
     for p in projects:
-        p.url = p.name.replace(' ', '_').lower()
+        p.url = p.name.replace(' ', '_')
 
     context_dict = {'projects' : projects}
     return render_to_response('rct/index.html', context_dict, context)
@@ -77,7 +77,7 @@ def create_project(request):
         form = ProjectForm(request.POST)
         if form.is_valid():
             project = form.save(commit=True)
-            project.url = project.name.replace(' ', '_').lower()
+            project.url = project.name.replace(' ', '_')
             user = User.objects.get(pk=request.user.id)
             project.members.add(user)
             project.save()
