@@ -57,6 +57,8 @@
         <button type="button" class="btn btn-success category-button btn-lg" id="could-have" onclick="couldHave()">Could Have</button>
         <button type="button" class="btn btn-primary category-button btn-lg" id="would-like" onclick="wouldLike()">Would Like</button>
         <button type="button" class="btn btn-default category-button btn-lg" id="all" onclick="show_all()">View All</button>
+        {% if must or should or could or would %}
+        {% else %}
         <div>
             <br>
             <a href="{% url 'add_task' project.url %}">
@@ -64,6 +66,7 @@
             Add New Task
             </a>
         </div>
+        {% endif %}
     </div>
     
     <div>
