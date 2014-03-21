@@ -1,5 +1,6 @@
 {% extends 'rct/base.html' %}
 {% load static %}
+{% load ac %}
 
 {% block nav %}
 {% include "rct/projects/nav.html" %}
@@ -16,18 +17,29 @@
             <h1> Add New Task to {{ project.name }} Project </h1>
         </div>
         
-        <div id = "mycontainer">
+        <div id="mycontainer">
     
-            <form id="task_form" method="post" action="{% url 'add_task' project.url %}">
+            <form role="form" id="task_form" method="post" action="{% url 'add_task' project.url %}">
                 {% csrf_token %}
-
-                {% for field in form.visible_fields %}
-                    {{ field.errors }}<br>
-                    {{ field.help_text }}<br>
-                    {{ field }}<br>
-                {% endfor %}
-                <br></br>
-                <input type="submit" name="submit" value="Create task" />
+                    {% for field in form.visible_fields %}
+                    {% if field|is_checkbox %}
+                    <div class="checkbox">
+                        {{ field.errors }}
+                        <label>
+                            {{ field }} {{ field.label }}
+                        </label>
+                    </div>
+                    {% else %}
+                    <div class="form-group {%if field.errors %}has-error{%endif%}">
+                        <label class="control-label" for="id_{{ field.name }}">
+                            {{ field.label }}
+                            {{ field.errors }}
+                        </label>
+                    {{ field|addclass:"form-control" }}
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                    <button type="submit" class="btn btn-default">Create Task</button>
             </form>
 
         </div>

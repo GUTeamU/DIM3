@@ -214,7 +214,7 @@ def update_task_completed(request):
 def edit_task(request, projectURL, task_id):
 
     context = RequestContext(request)
-    context_dict = {}
+    context_dict = {'url' : projectURL}
     try:
         project = Project.objects.get(url=projectURL)
         if not is_member(project, request.user.id):

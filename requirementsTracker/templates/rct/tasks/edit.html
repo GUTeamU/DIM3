@@ -1,5 +1,6 @@
 {% extends 'rct/base.html' %}
 {% load static %}
+{% load ac %}
 
 {% block nav %}
 {% include "rct/projects/nav.html" %}
@@ -16,18 +17,27 @@
             <h1> Editting task {{ task.title }} </h1>
         </div>
         
-        <div id = "mycontainer">
+        <div id="mycontainer">
     
-            <form id="task_form" method="post" action="">
+            <form role="form" id="task_form" method="post" action="{% url 'edit_task' url task.id %}">
                 {% csrf_token %}
-
-                {% for field in form.visible_fields %}
-                    {{ field.errors }}<br>
-                    {{ field.help_text }}<br>
-                    {{ field }}<br>
-                {% endfor %}
-                <br></br>
-                <input type="submit" name="submit" value="Finished editing" />
+                    {% for field in form.visible_fields %}
+                    {% if field|is_checkbox %}
+                    <div class="checkbox">
+                        {{ field.errors }}
+                        <label>
+                            {{ field }} {{ field.label }}
+                        </label>
+                    </div>
+                    {% else %}
+                    <div class="form-group">
+                    {{ field.errors }}
+                        <label for="id_{{ field.name }}">{{ field.label }}</label>
+                    {{ field|addclass:"form-control" }}
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                    <button type="submit" class="btn btn-default">Update</button>
             </form>
 
         </div>

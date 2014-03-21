@@ -8,6 +8,10 @@
     text-align:center;  
 }
 
+[role="form"] {
+    text-align: left;
+}
+
 /* ------------------------------------------------------ */
 /* Index */
 /* ------------------------------------------------------ */
@@ -35,11 +39,6 @@
     margin: 0 auto;
 }
 
-#mycontainer input{
-    width: 100%;
-    clear: both;
-    margin: 0 auto;	    
-}
 
 #signup {
 	text-align:center;

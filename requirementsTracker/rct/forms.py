@@ -38,14 +38,16 @@ class EditProjectForm(forms.ModelForm):
 
 class TaskForm(forms.ModelForm):
 	title = forms.CharField(max_length=256,help_text= "Enter a title")
-	completed = forms.BooleanField(initial=False, required=False, help_text="Tick to indicate if task is completed")
 	deadline = forms.DateTimeField(widget=DateTimeWidget(usel10n = True, options=dateTimeOptions), help_text="Deadline, click to open widget")
-	description = forms.CharField(max_length=256,help_text= "Enter a description")
 	category = forms.ChoiceField(choices = CATEGORIES, widget=forms.Select())
 
 	class Meta:
 		model = Task
-		fields = ('title', 'completed', 'deadline', 'description', 'category')
+		fields = ('title', 'deadline', 'description', 'category')
 
 class EditTaskForm(TaskForm):
-    deadline = forms.CharField(max_length=254) # workaround for the datetime widget breaking the edit form
+    deadline = forms.CharField()
+
+    class Meta:
+        model = Task
+        fields = ('title', 'deadline', 'category', 'description', 'completed')
