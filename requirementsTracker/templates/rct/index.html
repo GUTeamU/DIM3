@@ -1,0 +1,32 @@
+{% extends 'rct/base.html' %}
+
+{% block nav %}
+<li><a href="{% url 'create_project' %}">Add New Project</a></li>
+{% endblock %}
+
+{% block body_block %}
+
+    <div class="container">
+        {% if projects %}
+            <div id="header">
+                <h1> Your Projects... </h1>
+            </div>
+            {% for project in projects %}
+            <div class="jumbotron">
+                <h1>{{ project.name }}</h1>
+                <p><i>{{ project.description }}</i></p>
+                <a href="project/{{project.url}}/" class ="btn btn-default">View Whiteboard</a>
+            </div>
+            {% endfor %}
+        {% endif %}
+        <div id="header">
+            <a href="{% url 'create_project' %}">
+                <span class="glyphicon glyphicon-plus"></span>
+                Add New Project
+            </a>
+        </div>
+    </div>
+
+{% endblock %}
+
+       

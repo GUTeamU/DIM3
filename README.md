@@ -1,10 +1,27 @@
-DIM3
-====
-Project: Requirements Tracker.
 
-Setup:
-  
-  1. Create and run your virtual enviroment.
-  2. install django. `pip install django==1.5.4`
-  3. install openid. `pip install django-openid-auth` and also `pip install python-opendid`
-  4. DONE!
+DIM3 - Requirements Tracker
+===========================
+
+### Setup
+
+1. Create and run your virtual enviroment.
+    ```bash
+    virtualenv VENV
+    source VENV/bin/activate
+    ```
+
+2. Install the dependencies
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3. Setup the database
+    ```bash
+    python requirementsTracker/manage.py syncdb
+    ```
+
+4. Start the application
+    ```bash
+    python requirementsTracker/manage.py runserver
+    ```
+    

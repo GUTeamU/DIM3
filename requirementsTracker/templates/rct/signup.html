@@ -1,0 +1,59 @@
+{% extends 'rct/base.html' %}
+{% load static %}
+
+{% if user.is_anonymous %}
+    <meta http-equiv="refresh" content="0;url=/rct/login/">
+{% endif %}
+
+{% block nav-add %}{% endblock %}
+{% block nav-tasks %}{% endblock %}
+{% block nav-addMemb %}{% endblock %}
+{% block nav-addTask %}{% endblock %}
+{% block nav-addProj %}{% endblock %}
+
+
+{% block body_block %}
+
+
+        <div id="header">
+            <h1>Create an Account</h1>
+        </div>
+
+
+
+        
+        <div id = "mycontainer">
+    
+            <form id="user_form" method="post" action="/rct/signup/" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                {{user_form.username.id}}
+                {{ user_form.username.errors }}
+                <input id="{{user_form.username.id}}" type="text" class="form-control" placeholder="*Username (less than 30 characters)" name="username" value="" size="50">
+                <br>
+                
+                {{ user_form.first_name.errors }}
+                <input id="{{user_form.first_name.id}}" type="text" class="form-control" placeholder="First Name" name="first_name" value="" size="50">
+                <br>
+
+                {{ user_form.last_name.errors }}
+                <input id="{{user_form.last_name.id}}" type="text" class="form-control" placeholder="Last Name" name="last_name" value="" size="50">
+                <br>
+
+                {{ user_form.email.errors }}
+                <input id="{{user_form.email.id}}" type="text" class="form-control" placeholder="*Email Address" name="email" value="" size="50">
+                <br>
+                
+                {{ user_form.password.errors }}
+                <input id="{{user_form.password.id}}" type="password" class="form-control" placeholder="*Password" name="password" size="50"/>
+                <br>
+                <input class="btn btn-default" type="submit" value="Register" />
+            </form>
+
+        </div>
+        
+        {% if registered %}
+            <a href="/rct/">Return to index.</a><br/>
+        {% endif %}
+
+{% endblock %}

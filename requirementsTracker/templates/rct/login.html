@@ -1,0 +1,67 @@
+{% extends 'rct/base.html' %}
+
+{% block nav-add %}{% endblock %}
+{% block nav-tasks %}{% endblock %}
+{% block nav-addMemb %}{% endblock %}
+{% block nav-addTask %}{% endblock %}
+{% block nav-addProj %}{% endblock %}
+
+
+
+{% block body_block %}
+
+        {% load static %}
+        {% if user.is_anonymous %}
+
+        <div id="header">
+            <h1>Welcome to ToDoList</h1>
+        </div>
+
+        <p><i>ToDoList is an organisational tool which allows multiple users to share a virtual whiteboard and keep track of project requirements</i></p>
+        <br></br>
+
+        <div id="header">
+            <h3>Login with:</h1>
+         </div>
+
+
+        <div id="container">
+            <a  href="{% url 'socialauth_begin' 'github' %}" class="social-icon" data-toggle="tooltip" title="Github"><img src="{% static "images/github.jpg"%}" alt="Github logo"></a>
+
+            <a href="{% url 'socialauth_begin' 'facebook' %}" class="social-icon" data-toggle="tooltip" title="Facebook"><img src="{% static "images/facebook.jpg"%}" alt="Facebook logo"></a>
+
+            <a href="{% url 'socialauth_begin' 'twitter' %}" class="social-icon" data-toggle="tooltip" title="Twitter"><img src="{% static "images/twitter.jpg"%}" alt="Twitter logo"></a>
+
+            <a href="{% url 'socialauth_begin' 'google-oauth2' %}" class="social-icon"  data-toggle="tooltip" title="Google+"><img src="{% static "images/google.jpg"%}" alt="Google logo"></a>
+
+<!--             <a href="{% url 'socialauth_begin' 'linkedin' %}" data-toggle="tooltip" data-placement="bottom" title="LinkedIn"><img src="{% static "images/linkedin.jpg"%}" alt="Linkedin logo"></a> -->
+        </div>
+        <br></br>
+        <div id="header">
+            <h4>Or Login Manually:</h4>
+         </div>
+
+        <div id = "mycontainer">
+            <form id="login_form" method="post" action="/rct/login/">
+                {% csrf_token %}
+                
+                <input type="text" class="form-control" placeholder="E-mail" name="email" value="" size="50">
+                <br>
+
+                <input type="password" class="form-control" placeholder="Password" name="password" value="" size="50">
+                <br>
+                <input type="submit" value="Submit" />
+            </form>
+        </div>
+
+
+        <div id="signup">
+            <br></br>
+            <p><a href="/rct/signup">First time here? Click to here sign up!</a></p></br>
+        </div>
+        {% endif %}
+
+        {% if user.is_authenticated %}
+            <meta http-equiv="refresh" content="0;/rct/"/>
+        {% endif %}
+{% endblock %}
