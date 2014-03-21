@@ -8,7 +8,8 @@
 
 {% block nav %}
 {% include "rct/projects/nav.html" %}
-<li><a href="#" data-toggle="modal" data-target="#editProject"><span class="glyphicon glyphicon-cog"></span> </a></li>
+<li><a href="#" data-toggle="modal" data-target="#editProject">Project Settings
+<span class="glyphicon glyphicon-cog"></span> </a></li>
 {% endblock %}
 
 {% block body_block %}
@@ -56,6 +57,13 @@
         <button type="button" class="btn btn-success category-button btn-lg" id="could-have" onclick="couldHave()">Could Have</button>
         <button type="button" class="btn btn-primary category-button btn-lg" id="would-like" onclick="wouldLike()">Would Like</button>
         <button type="button" class="btn btn-default category-button btn-lg" id="all" onclick="show_all()">View All</button>
+        <div>
+            <br>
+            <a href="{% url 'add_task' project.url %}">
+            <span class="glyphicon glyphicon-plus"></span>
+            Add New Task
+            </a>
+        </div>
     </div>
     
     <div>
@@ -91,6 +99,7 @@
             {% endfor %}
             {% endif %}
         </ul>
+        
     </div>
 </div>
 

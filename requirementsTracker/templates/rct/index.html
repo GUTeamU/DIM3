@@ -18,11 +18,13 @@
                 <a href="project/{{project.url}}/" class ="btn btn-default">View Whiteboard</a>
             </div>
             {% endfor %}
-        {% else %}
-            <div id="header">
-                <h1> Click "Add New Project" to get started...</h1>
-            </div>
         {% endif %}
+        <div id="header">
+            <a href="{% url 'create_project' %}">
+                <span class="glyphicon glyphicon-plus"></span>
+                Add New Project
+            </a>
+        </div>
     </div>
 
 {% endblock %}
